@@ -8,19 +8,13 @@ class Ability
     if admin_user.admin?
       can :read, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
       can :manage, AdminUser
-
-      # can :manage, Dashboard
-      # can :manage, :admin
-      # can :manage, Dashboard
-      # can :read, :all
     elsif admin_user.manager?
       can :manage, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
-      # can :manage, Comment
-      # config.comments = true
-      # can :manage, :all
-      can :manage, Product
       can :update, AdminUser, id: admin_user.id
-      # can :manage, :all
+      can :manage, Product
+      can :manage, CategoryPro
+      can :manage, User
+
     end
   end
 
