@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_04_21_142559) do
+=======
+ActiveRecord::Schema.define(version: 2020_04_22_023146) do
+>>>>>>> ca9b2549ebec144f0728bc8abeda042eb32d4a5a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,25 +46,57 @@ ActiveRecord::Schema.define(version: 2020_04_21_142559) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "admin_users_roles", id: false, force: :cascade do |t|
     t.bigint "admin_user_id"
     t.bigint "role_id"
     t.index ["admin_user_id", "role_id"], name: "index_admin_users_roles_on_admin_user_id_and_role_id"
     t.index ["admin_user_id"], name: "index_admin_users_roles_on_admin_user_id"
     t.index ["role_id"], name: "index_admin_users_roles_on_role_id"
+=======
+  create_table "category_pros", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_details", force: :cascade do |t|
+    t.string "screen"
+    t.string "operating_sytem"
+    t.string "rear_camera"
+    t.string "front_camera"
+    t.string "network_connection"
+    t.string "cpu"
+    t.string "ram"
+    t.string "intemal_memory"
+    t.string "memory_stick"
+    t.string "sim"
+    t.string "battery_capacity"
+    t.string "hard_drive"
+    t.string "graphic_card"
+    t.string "connector"
+    t.string "design"
+    t.string "size"
+    t.string "release_time"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_details_on_product_id"
+>>>>>>> ca9b2549ebec144f0728bc8abeda042eb32d4a5a
   end
 
   create_table "products", force: :cascade do |t|
     t.string "pro_name"
-    t.integer "quantity"
+    t.integer "quantily"
     t.float "price_input"
-    t.float "price_output"
-    t.text "description"
+    t.float "price_out"
     t.string "img_1"
     t.string "img_2"
     t.string "img_3"
+    t.bigint "category_pro_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
     t.bigint "admin_user_id"
   end
 
@@ -72,6 +108,9 @@ ActiveRecord::Schema.define(version: 2020_04_21_142559) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+=======
+    t.index ["category_pro_id"], name: "index_products_on_category_pro_id"
+>>>>>>> ca9b2549ebec144f0728bc8abeda042eb32d4a5a
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,4 +127,6 @@ ActiveRecord::Schema.define(version: 2020_04_21_142559) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "product_details", "products"
+  add_foreign_key "products", "category_pros"
 end

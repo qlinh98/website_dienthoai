@@ -77,6 +77,10 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     arbre (1.2.1)
       activesupport (>= 3.0.0)
+    arctic_admin (3.2.0)
+      activeadmin (>= 1.1.0, < 3.0)
+      font-awesome-sass (~> 5.0)
+      jquery-rails
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -105,6 +109,8 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
+    font-awesome-sass (5.12.0)
+      sassc (>= 1.11)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -295,6 +301,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activerecord-session_store
+  arctic_admin
   bootsnap (>= 1.4.2)
   byebug
   cancancan
