@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  screen: MyString
+  operating_sytem: MyString
+  rear_camera: MyString
+  front_camera: MyString
+  network_connection: MyString
+  cpu: MyString
+  ram: MyString
+  intemal_memory: MyString
+  memory_stick: MyString
+  sim: MyString
+  battery_capacity: MyString
+  hard_drive: MyString
+  graphic_card: MyString
+  connector: MyString
+  design: MyString
+  size: MyString
+  release_time: MyString
+  product: one
+
+two:
+  screen: MyString
+  operating_sytem: MyString
+  rear_camera: MyString
+  front_camera: MyString
+  network_connection: MyString
+  cpu: MyString
+  ram: MyString
+  intemal_memory: MyString
+  memory_stick: MyString
+  sim: MyString
+  battery_capacity: MyString
+  hard_drive: MyString
+  graphic_card: MyString
+  connector: MyString
+  design: MyString
+  size: MyString
+  release_time: MyString
+  product: two
