@@ -332,4 +332,20 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+
+  # ActiveAdmin::ResourceController.class_eval do
+  #   protected
+
+  #   def current_ability
+  #     @current_ability ||= AdminAbility.new(current_user)
+  #   end
+  # end
+
+  config.comments = true
+  # config.admin_users = false
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  config.on_unauthorized_access = :access_denied
+  config.cancan_ability_class = Ability
+  # if can? :update, products
+  # end
 end
