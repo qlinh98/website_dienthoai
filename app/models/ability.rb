@@ -13,7 +13,13 @@ class Ability
       can :update, AdminUser, id: admin_user.id
       can :manage, Product
       can :manage, CategoryPro
-      can :manage, User
+      can :read, User
+      can :manage, ProductDetail
+      can :read, Poll
+      can :read, Order
+      can :read, LineItem
+      can :read, Cart
+      
 
     end
   end
