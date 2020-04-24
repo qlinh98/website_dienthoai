@@ -25,7 +25,9 @@
         <td><%= product.price_input %></td>
         <td><%= product.price_output %></td>
         <td><%= product.description %></td>
-        <td><%= product.img_1 %></td>
+        <td>
+        <%= image_tag(product.img_1, class: "list_image") %>
+        </td>
         <td><%= product.img_2 %></td>
         <td><%= product.img_3 %></td>
         <td><%= link_to 'Show', product %></td>
