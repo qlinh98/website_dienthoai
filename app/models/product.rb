@@ -7,6 +7,9 @@ class Product < ApplicationRecord
   has_one :product_detail
   has_many :poll
   has_many :line_item
+  mount_uploader :img_1, ImageUploader
+  mount_uploader :img_2, ImageUploader
+  mount_uploader :img_3, ImageUploader
   #show value name product in activeadmin
   def name
     return self.pro_name
