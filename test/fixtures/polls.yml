@@ -2,12 +2,12 @@
 
 one:
   comment: MyString
-  votecount: 1
+  vote_count: 1
   product: one
   user: one
 
 two:
   comment: MyString
-  votecount: 1
+  vote_count: 1
   product: two
   user: two

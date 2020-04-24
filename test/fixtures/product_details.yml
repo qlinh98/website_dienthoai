@@ -2,13 +2,13 @@
 
 one:
   screen: MyString
-  operating_sytem: MyString
+  operating_system: MyString
   rear_camera: MyString
   front_camera: MyString
   network_connection: MyString
   cpu: MyString
   ram: MyString
-  intemal_memory: MyString
+  internal_memory: MyString
   memory_stick: MyString
   sim: MyString
   battery_capacity: MyString
@@ -22,13 +22,13 @@ one:
 
 two:
   screen: MyString
-  operating_sytem: MyString
+  operating_system: MyString
   rear_camera: MyString
   front_camera: MyString
   network_connection: MyString
   cpu: MyString
   ram: MyString
-  intemal_memory: MyString
+  internal_memory: MyString
   memory_stick: MyString
   sim: MyString
   battery_capacity: MyString

@@ -2,9 +2,9 @@
 
 one:
   pro_name: MyString
-  quantily: 1
+  quantity: 1
   price_input: 1.5
-  price_out: 1.5
+  price_output: 1.5
   img_1: MyString
   img_2: MyString
   img_3: MyString
@@ -12,9 +12,9 @@ one:
 
 two:
   pro_name: MyString
-  quantily: 1
+  quantity: 1
   price_input: 1.5
-  price_out: 1.5
+  price_output: 1.5
   img_1: MyString
   img_2: MyString
   img_3: MyString

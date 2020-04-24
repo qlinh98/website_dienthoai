@@ -2,7 +2,7 @@
 
 one:
   name_pro: MyString
-  quanlity: 1
+  quantity: 1
   money: 9.99
   total: 9.99
   product: one
@@ -10,7 +10,7 @@ one:
 
 two:
   name_pro: MyString
-  quanlity: 1
+  quantity: 1
   money: 9.99
   total: 9.99
   product: two

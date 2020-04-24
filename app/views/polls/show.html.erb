@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @poll.comment %>
+</p>
+
+<p>
+  <strong>Vote count:</strong>
+  <%= @poll.vote_count %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @poll.product_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @poll.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>

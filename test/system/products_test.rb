@@ -14,7 +14,7 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "New Product"
 
-    fill_in "Description", with: @product.description
+    fill_in "Category pro", with: @product.category_pro_id
     fill_in "Img 1", with: @product.img_1
     fill_in "Img 2", with: @product.img_2
     fill_in "Img 3", with: @product.img_3
@@ -32,7 +32,7 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "Edit", match: :first
 
-    fill_in "Description", with: @product.description
+    fill_in "Category pro", with: @product.category_pro_id
     fill_in "Img 1", with: @product.img_1
     fill_in "Img 2", with: @product.img_2
     fill_in "Img 3", with: @product.img_3

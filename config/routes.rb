@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :orders
+  resources :carts
+  resources :polls
+  resources :product_details
+  resources :products
+  resources :category_pros
+  get 'product/index'
   get 'product_detail/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

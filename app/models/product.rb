@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
-  validates :quantily, numericality: {only_integer: true}
+  validates :quantity, :price_input, numericality: { only_integer: true }
+  validates :price_output, numericality: { only_integer: true, greater_than_or_equal_to: :price_input }
+  validates :pro_name, :quantity, :price_input, :category_pro_id, presence: true
+
   belongs_to :category_pro
   has_one :product_detail
   has_many :poll

@@ -17,7 +17,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { description: @product.description, img_1: @product.img_1, img_2: @product.img_2, img_3: @product.img_3, price_input: @product.price_input, price_output: @product.price_output, pro_name: @product.pro_name, quantity: @product.quantity } }
+      post products_url, params: { product: { category_pro_id: @product.category_pro_id, img_1: @product.img_1, img_2: @product.img_2, img_3: @product.img_3, price_input: @product.price_input, price_output: @product.price_output, pro_name: @product.pro_name, quantity: @product.quantity } }
     end
 
     assert_redirected_to product_url(Product.last)
@@ -34,7 +34,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { description: @product.description, img_1: @product.img_1, img_2: @product.img_2, img_3: @product.img_3, price_input: @product.price_input, price_output: @product.price_output, pro_name: @product.pro_name, quantity: @product.quantity } }
+    patch product_url(@product), params: { product: { category_pro_id: @product.category_pro_id, img_1: @product.img_1, img_2: @product.img_2, img_3: @product.img_3, price_input: @product.price_input, price_output: @product.price_output, pro_name: @product.pro_name, quantity: @product.quantity } }
     assert_redirected_to product_url(@product)
   end
 

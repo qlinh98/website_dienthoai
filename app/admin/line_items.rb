@@ -5,12 +5,12 @@ ActiveAdmin.register LineItem do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name_pro, :quanlity, :money, :total, :product_id, :order_id
+  # permit_params :name_pro, :quantity, :money, :total, :product_id, :order_id
   #
   # or
   #
   # permit_params do
-  #   permitted = [:name_pro, :quanlity, :money, :total, :product_id, :order_id]
+  #   permitted = [:name_pro, :quantity, :money, :total, :product_id, :order_id]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
