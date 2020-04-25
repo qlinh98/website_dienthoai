@@ -8,6 +8,7 @@ class Ability
     if admin_user.admin?
       can :read, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
       can :manage, AdminUser
+      cannot :destroy, AdminUser, id: admin_user.id
     elsif admin_user.manager?
       can :manage, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
       can :update, AdminUser, id: admin_user.id
@@ -19,8 +20,6 @@ class Ability
       can :read, Order
       can :read, LineItem
       can :read, Cart
-      
-
     end
   end
 
