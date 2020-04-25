@@ -14,4 +14,5 @@ class Product < ApplicationRecord
   def name
     return self.pro_name
   end
+  
 end
