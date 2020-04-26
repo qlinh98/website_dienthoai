@@ -7,5 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', permission: 1) if Rails.env.development?
 
-
-Product.create!(pro_name: 'Samsung2', img_1: 'product01.png',price_output: 46.00)

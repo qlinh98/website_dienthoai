@@ -3,19 +3,30 @@
 one:
   pro_name: MyString
   quantity: 1
-  price_input: 1.5
-  price_output: 1.5
-  img_1: MyString
-  img_2: MyString
-  img_3: MyString
-  category_pro: one
+  price_input: 5
+  price_output: 5
+  img_1: MyString.gif
+  img_2: MyString.gif
+  img_3: MyString.gif
+  category_pro: 1
 
 two:
   pro_name: MyString
   quantity: 1
-  price_input: 1.5
-  price_output: 1.5
-  img_1: MyString
-  img_2: MyString
-  img_3: MyString
-  category_pro: two
+  price_input: 4
+  price_output: 3
+  img_1: MyString.png
+  img_2: MyString.png
+  img_3: MyString.png
+  category_pro: 2
+
+phone:
+  pro_name: Galaxy A51
+  quantity: 15
+  price_input: 4000000
+  price_output: 7000000
+  img_1: MyString.jpg
+  img_2: MyString.jpg
+  img_3: MyString.jpg
+  category_pro: 2
+

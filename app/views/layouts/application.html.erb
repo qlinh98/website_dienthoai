@@ -15,14 +15,14 @@
       <p class="alert"><%= alert %></p>
     <%end%>
     <%= yield %>
-    <!-- jQuery Plugins -->
-    <script src="views/js/jquery.min.js"></script>
-    <script src="views/js/bootstrap.min.js"></script>
-    <script src="views/js/slick.min.js"></script>
-    <script src="views/js/nouislider.min.js"></script>
-    <script src="views/js/jquery.zoom.min.js"></script>
-    <script src="views/js/main.js"></script>
     <%= render "layouts/footer"%>
     <%= javascript_pack_tag 'application' %>
+    <!-- jQuery Plugins -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <script src="../js/nouislider.min.js"></script>
+    <script src="../js/jquery.zoom.min.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>

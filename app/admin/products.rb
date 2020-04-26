@@ -5,6 +5,10 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
+  scope :all, :default => true
+  
+  # Ex:- scope :active, -> {where(:active => true)}
+  # Ex:- scope :active, -> {where(:active => true)}
 
   permit_params :pro_name, :quantity, :price_input, :price_output, :img_1, :img_2, :img_3, :category_pro_id
   #
