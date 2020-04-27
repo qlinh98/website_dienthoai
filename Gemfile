@@ -31,6 +31,7 @@ gem 'activerecord-session_store'
 gem 'activeadmin'
 gem 'arctic_admin'
 gem "carrierwave"
+gem 'pg_search'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

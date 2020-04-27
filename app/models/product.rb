@@ -14,9 +14,17 @@ class Product < ApplicationRecord
   mount_uploader :img_1, ImageUploader
   mount_uploader :img_2, ImageUploader
   mount_uploader :img_3, ImageUploader
+  include PgSearch
+  pg_search_scope :search, against: [:pro_name]
 
   #show value name product in activeadmin
   def name
     return self.pro_name
   end
+
+  # def self.search(search)
+  #   if search
+  #     product = Product.find_by(pro_name: search)
+  # end
+
 end
