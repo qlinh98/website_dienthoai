@@ -44,10 +44,10 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   def new_product(image_1)
-    Product.new(:pro_name => "ffsfsfsfsf",
+    Product.new(:pro_name => "HAHAHA",
                 :quantity => 45,
-                :price_input => 5,
-                :price_output => 6,
+                :price_input => 5.0,
+                :price_output => 6.0,
                 :img_1 => image_1,
                 :img_2 => image_1,
                 :img_3 => image_1)

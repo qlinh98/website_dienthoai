@@ -5,7 +5,7 @@ class Ability
 
   def initialize(admin_user)
     # admin_user ||= AdminUser.new
-    can :read, :all
+    #can :read, :all
     if admin_user.admin?
       can :read, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
       can :manage, AdminUser

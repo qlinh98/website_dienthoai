@@ -1,4 +1,6 @@
 class CategoryProsController < InheritedResources::Base
+
+  
   private
 
   def category_pro_params
