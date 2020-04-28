@@ -1,6 +1,5 @@
 class ProductsController < InheritedResources::Base
   # load_and_authorize_resource
-
   def show
     if valid_page?
       @products = Product.all.page params[:page]
@@ -21,15 +20,17 @@ class ProductsController < InheritedResources::Base
       @catelorys.each do |category|
         @cate << category
       end
+
+      @pagy, @pro = pagy(scope, page: (params[:page].to_i rescue 1))
+      # @pro = Product.all.page params[:page]
       render template: "products/#{params[:page]}"
     else
       render file: "public/404.html", status: :not_found
     end
   end
-
-  def index
-    @pro = Product.all.page params[:page]
-  end
+  # def index
+  #   @pagy, @pro = pagy(scope, page: (params[:page].to_i rescue 1))
+  # end
 
   # def show
   #   @product1 = []
@@ -45,6 +46,7 @@ class ProductsController < InheritedResources::Base
   #     end
   #   end
   # end
+    
 
   private
 
