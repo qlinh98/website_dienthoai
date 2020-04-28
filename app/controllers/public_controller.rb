@@ -1,17 +1,22 @@
 class PublicController < ApplicationController
   def main
+    #product load
     @products = Product.all
-    @phone = []
-    @laptop = []
-    @tablet = []
+    @categorys = CategoryPro.all
+    @category = []
+    @product = []
+    @categorys.each do |category|
+      @category << category
+    end
     @products.each do |product|
-      if product.category_pro_id == 1
-        @phone << product
-      elsif product.category_pro_id == 2
-        @laptop << product
-      elsif product.category_pro_id == 3
-        @tablet << product
-      end
+      @product << product
+    end
+
+    #category load
+    @cate = []
+    @catelorys = CategoryPro.all
+    @catelorys.each do |category|
+      @cate << category
     end
   end
 end

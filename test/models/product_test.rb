@@ -23,9 +23,9 @@ class ProductTest < ActiveSupport::TestCase
     product.price_output = 0
     assert product.invalid?
     assert_equal "must be greater than or equal to #{product.price_input}",
-                product.errors[:price_output].join("")
+                 product.errors[:price_output].join("")
 
-    product.price_output = 7
+    product.price_output = 7.0
     assert product.valid?
   end
 
@@ -40,12 +40,12 @@ class ProductTest < ActiveSupport::TestCase
                           :img_3 => "MyString")
     assert !product.save
     assert_equal "has already been taken",
-                product.errors[:pro_name].join("")
+                 product.errors[:pro_name].join("")
   end
 
   def new_product(image_1)
-    Product.new(:pro_name => "HAHAHA",
-                :quantity => 45,
+    Product.new(:pro_name => "ffsfsfsfsf",
+                :quantity => 45.0,
                 :price_input => 5.0,
                 :price_output => 6.0,
                 :img_1 => image_1,

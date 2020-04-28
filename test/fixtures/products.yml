@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pro_name: MyString
+  pro_name: MyString1
   quantity: 1
   price_input: 5.0
   price_output: 5.0
@@ -11,7 +11,7 @@ one:
   category_pro: 1
 
 two:
-  pro_name: MyString
+  pro_name: MyString2
   quantity: 1
   price_input: 4.0
   price_output: 3.0
