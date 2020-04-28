@@ -30,7 +30,9 @@ gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
 gem 'activeadmin'
 gem 'arctic_admin'
-gem "carrierwave"
+gem 'carrierwave'
+gem 'jquery-rails'
+gem 'js'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

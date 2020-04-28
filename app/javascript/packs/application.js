@@ -2,8 +2,8 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-require('jquery')
-require("bootstrap")
+// require('jquery')
+// require("bootstrap")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -22,15 +22,23 @@ require("channels")
 
 // other js
 
-require("../custom/jquery.min")
-require("../custom/jquery.zoom.min")
-require("../custom/main")
-require("../custom/nouislider.min")
-require("../custom/slick.min")
-require("../custom/bootstrap.min")
+require('jquery.min.js')
+require('bootstrap.min.js')
+require('slick.min.js')
+require('nouislider.min.js')
+require('jquery.zoom.min.js')
+require('main.js')
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import 'css/site.scss'
+
+// require ('css/bootstrap.min.js')
+// require ('css/slick')
+// require ('css/slick-theme')
+// require ('css/nouislider.min')
+// require ('css/font-awesome.min')
+// require ('css/style')
