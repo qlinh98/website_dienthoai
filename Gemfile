@@ -35,7 +35,6 @@ gem 'carrierwave'
 gem 'jquery-rails'
 gem 'js'
 gem 'pg_search'
-<<<<<<< HEAD
 gem 'kaminari'
 
 # Use Active Storage variant
