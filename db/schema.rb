@@ -62,8 +62,10 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.decimal "total"
     t.bigint "product_id", null: false
     t.bigint "order_id", null: false
+    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
@@ -74,10 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.text "address"
     t.integer "pay_type"
     t.decimal "total"
-    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
   end
 
   add_foreign_key "carts", "users"
+  add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
-  add_foreign_key "orders", "carts"
   add_foreign_key "polls", "products"
   add_foreign_key "polls", "users"
   add_foreign_key "product_details", "products"

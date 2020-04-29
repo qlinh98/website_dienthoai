@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  # resources :line_items
-  # resources :orders
-  # resources :carts
+  resources :line_items
+  resources :orders
+  resources :carts
   # resources :polls
   # resources :product_details
   get "/products/:page" => "products#show"
-  # resources :products
+  resources :products
 
   # resources :category_pros
   # get 'product_detail/index'
