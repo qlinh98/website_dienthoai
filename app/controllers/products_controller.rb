@@ -1,67 +1,18 @@
 class ProductsController < InheritedResources::Base
   # load_and_authorize_resource
+ 
   def show
-    if valid_page?
-      @products = Product.all
-      @categorys = CategoryPro.all
-      @category = []
-      @product = []
-      @all = []
-      @categorys.each do |category|
-        @products.each do |product|
-          if product.category_pro_id == category.id
-            @all << product
-          end
-        end
-      end
-      #navcategory product all show
-      navcategory_product(@categorys)
-      #search product
-      search_product
-
-    end
+    @products = Product.all
+    search_product
   end
-  # method search
   def search_product
     @search = params["search"]
-      if @search.present?
-        @name = @search
-        @products = Product.where(pro_name: @name)
-      end
-      render template: "products/#{params[:page]}"
-  end
-# method show category 
-  def navcategory_product(category_pro)
-    @cate = []
-    category_pro.each do |category|
-      @cate << category
+    if @search.present?
+      name = @search
+      @products = Product.where(pro_name: name)
     end
+    
   end
-
-  # fill product folow category
-  def fill_product
-    if params["search"]
-      @filter = params["search"]["flavors"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
-      @cocktails = @filter.empty? ? Cocktail.all : Cocktail.all.tagged_with(@filter, any: true)
-    else
-      @cocktails = Cocktail.all
-    end
- end
-  # def show
-  #   @product1 = []
-  #   if params[:search]
-  #     @product = Product.search_by_full_name(params[:search])
-  #     @product.each do |product2|
-  #       @product1 << product2
-  #     end
-  #   else
-  #     @product = Product.all
-  #     @product.each do |product2|
-  #       @product1 << product2
-  #     end
-  #   end
-  # end
-
   private
 
   def set_product
