@@ -22,23 +22,23 @@ require("channels")
 
 // other js
 
-require('jquery.min.js')
-require('bootstrap.min.js')
-require('slick.min.js')
-require('nouislider.min.js')
-require('jquery.zoom.min.js')
-require('main.js')
+require('./jquery.min.js')
+require('./bootstrap.min.js')
+require('./slick.min.js')
+require('./nouislider.min.js')
+require('./jquery.zoom.min.js')
+require('./main.js')
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import 'css/site.scss'
-
-// require ('css/bootstrap.min.js')
-// require ('css/slick')
-// require ('css/slick-theme')
-// require ('css/nouislider.min')
-// require ('css/font-awesome.min')
-// require ('css/style')
+// import '../css/site.scss'
+// import('../stylesheets/application.css');
+// import '../stylesheets/bootstrap.min'
+// import '../stylesheets/slick'
+// import '../stylesheets/slick-theme'
+// import '../stylesheets/nouislider.min'
+// import '../stylesheets/font-awesome.min'
+// import '../stylesheets/style'
