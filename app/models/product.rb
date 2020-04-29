@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   mount_uploader :img_3, ImageUploader
 
   before_destroy :ensure_not_referenced_by_any_line_item
+
   include PgSearch
   pg_search_scope :search, against: [:pro_name]
 

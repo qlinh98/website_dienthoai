@@ -1,7 +1,26 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  before_action :category_show, :search_product
   # check_authorization
   protect_from_forgery
+
+  def category_show
+    @cate = []
+    @catelorys = CategoryPro.all
+    @catelorys.each do |category|
+      @cate << category
+    end
+  end
+
+  # method search
+  def search_product
+    @search = params["search"]
+    if @search.present?
+      @name = @search
+      @products = Product.where(pro_name: @name)
+    end
+    # render template: "products/#{params[:page]}"
+  end
 
   def access_denied(exception)
     redirect_to admin_root_path, alert: exception.message

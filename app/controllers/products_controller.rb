@@ -18,19 +18,10 @@ class ProductsController < InheritedResources::Base
       navcategory_product(@categorys)
       #search product
       search_product
-
     end
   end
-  # method search
-  def search_product
-    @search = params["search"]
-      if @search.present?
-        @name = @search
-        @products = Product.where(pro_name: @name)
-      end
-      render template: "products/#{params[:page]}"
-  end
-# method show category 
+
+  # method show category
   def navcategory_product(category_pro)
     @cate = []
     category_pro.each do |category|
@@ -46,7 +37,8 @@ class ProductsController < InheritedResources::Base
     else
       @cocktails = Cocktail.all
     end
- end
+  end
+
   # def show
   #   @product1 = []
   #   if params[:search]

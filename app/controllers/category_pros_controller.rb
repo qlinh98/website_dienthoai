@@ -1,10 +1,5 @@
 class CategoryProsController < InheritedResources::Base
   def show
-    @cate = []
-    @catelorys = CategoryPro.all
-    @catelorys.each do |category|
-      @cate << category
-    end
   end
 
   private
