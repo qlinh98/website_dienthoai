@@ -1,9 +1,8 @@
 class ProductsController < InheritedResources::Base
   # load_and_authorize_resource
-
   def show
     if valid_page?
-      @products = Product.all.page params[:page]
+      @products = Product.all
       @categorys = CategoryPro.all
       @category = []
       @product = []
@@ -16,21 +15,38 @@ class ProductsController < InheritedResources::Base
         end
       end
       #navcategory product all show
-      @cate = []
-      @catelorys = CategoryPro.all
-      @catelorys.each do |category|
-        @cate << category
+      navcategory_product(@categorys)
+      #search product
+      search_product
+
+    end
+  end
+  # method search
+  def search_product
+    @search = params["search"]
+      if @search.present?
+        @name = @search
+        @products = Product.where(pro_name: @name)
       end
       render template: "products/#{params[:page]}"
-    else
-      render file: "public/404.html", status: :not_found
+  end
+# method show category 
+  def navcategory_product(category_pro)
+    @cate = []
+    category_pro.each do |category|
+      @cate << category
     end
   end
 
-  def index
-    @pro = Product.all.page params[:page]
-  end
-
+  # fill product folow category
+  def fill_product
+    if params["search"]
+      @filter = params["search"]["flavors"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
+      @cocktails = @filter.empty? ? Cocktail.all : Cocktail.all.tagged_with(@filter, any: true)
+    else
+      @cocktails = Cocktail.all
+    end
+ end
   # def show
   #   @product1 = []
   #   if params[:search]
