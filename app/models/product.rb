@@ -14,6 +14,8 @@ class Product < ApplicationRecord
   mount_uploader :img_1, ImageUploader
   mount_uploader :img_2, ImageUploader
   mount_uploader :img_3, ImageUploader
+
+  before_destroy :ensure_not_referenced_by_any_line_item
   include PgSearch
   pg_search_scope :search, against: [:pro_name]
 
@@ -26,5 +28,13 @@ class Product < ApplicationRecord
   #   if search
   #     product = Product.find_by(pro_name: search)
   # end
+  private
 
+  # ensure that there are no line items referencing this product
+  def ensure_not_referenced_by_any_line_item
+    unless line_items.empty?
+      errors.add(:base, "Line Items present")
+      throw :abort
+    end
+  end
 end
