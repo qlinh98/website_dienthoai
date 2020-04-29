@@ -1,4 +1,6 @@
 class CartsController < InheritedResources::Base
+  
+
   private
 
   def cart_params

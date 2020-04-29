@@ -1,28 +1,36 @@
 class ProductsController < InheritedResources::Base
   # load_and_authorize_resource
-
   def show
     if valid_page?
-      @products = Product.all
-      @phone = []
-      @laptop = []
-      @tablet = []
-      @product1=[]
-      @products.each do |product|
-        @product1 << product
-        if product.category_pro_id == 1
-          @phone << product
-        elsif product.category_pro_id == 2
-          @laptop << product
-        elsif product.category_pro_id == 3
-          @tablet << product
+      @products = Product.all.page params[:page]
+      @categorys = CategoryPro.all
+      @category = []
+      @product = []
+      @all = []
+      @categorys.each do |category|
+        @products.each do |product|
+          if product.category_pro_id == category.id
+            @all << product
+          end
         end
       end
+      #navcategory product all show
+      @cate = []
+      @catelorys = CategoryPro.all
+      @catelorys.each do |category|
+        @cate << category
+      end
+
+      @pagy, @pro = pagy(scope, page: (params[:page].to_i rescue 1))
+      # @pro = Product.all.page params[:page]
       render template: "products/#{params[:page]}"
     else
       render file: "public/404.html", status: :not_found
     end
   end
+  # def index
+  #   @pagy, @pro = pagy(scope, page: (params[:page].to_i rescue 1))
+  # end
 
   # def show
   #   @product1 = []
@@ -38,6 +46,7 @@ class ProductsController < InheritedResources::Base
   #     end
   #   end
   # end
+    
 
   private
 

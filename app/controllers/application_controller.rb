@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   # check_authorization
   protect_from_forgery
 
@@ -35,7 +36,7 @@ class ApplicationController < ActionController::Base
   #   #   message: "Not Found.",
   #   # }, status: 404
   #   # p "Loi roi"
-    
+
   # end
 
   # def render_500

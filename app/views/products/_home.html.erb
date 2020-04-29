@@ -1,13 +1,13 @@
  <!-- SECTION -->
-<div class="section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
-      <!-- section title -->
-      <div class="col-md-12">
+<% @category.each do |category_product| %>
+  <div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <!-- section title -->
         <div class="section-title">
-          <h3 class="title"><a href="/products/smartphone">PHONE NEWS</a></h3>
+          <h3 class="title"><a href="/products/smartphone"><%=category_product.category_name%> NEWS</a></h3>
         </div>
       </div>
       <!-- /section title -->
@@ -19,36 +19,38 @@
             <div id="tab1" class="tab-pane active">
               <div class="products-slick" data-nav="#slick-nav-1">
                 <!-- product -->
-                <% @phone.each do |product| %>
-                  <div class="product">
-                    <div class="product-img">
-                      <img src = "<%=product.img_1%>">
-                      <div class="product-label">
-                        <span class="sale">-30%</span>
-                        <span class="new">NEW</span>
+                <% @product.each do |product_category| %>
+                  <% if product_category.category_pro_id ==  category_product.id%>
+                    <div class="product">
+                      <div class="product-img">
+                        <img src = "<%=product_category.img_1%>">
+                        <div class="product-label">
+                          <span class="sale">-30%</span>
+                          <span class="new">NEW</span>
+                        </div>
+                      </div>
+                      <div class="product-body">
+                        <p class="product-category"><%=product_category.category_pro.category_name%></p>
+                        <h3 class="product-name"><a href="#"><%= product_category.pro_name %></a></h3>
+                        <h4 class="product-price"><%= product_category.price_output %> <del class="product-old-price">$990.00</del></h4>
+                        <div class="product-rating">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <div class="product-btns">
+                          <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                          <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                          <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div class="add-to-cart">
+                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                       </div>
                     </div>
-                    <div class="product-body">
-                      <p class="product-category"><%=product.category_pro.category_name%></p>
-                      <h3 class="product-name"><a href="#"><%= product.pro_name %></a></h3>
-                      <h4 class="product-price"><%= product.price_output %> <del class="product-old-price">$990.00</del></h4>
-                      <div class="product-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div class="product-btns">
-                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                      </div>
-                    </div>
-                    <div class="add-to-cart">
-                      <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                  </div>
+                  <%end%>
                 <%end%>
                 <!-- /product -->
               </div>
@@ -64,134 +66,4 @@
   </div>
   <!-- /container -->
 </div>
-<div class="section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
-      <!-- section title -->
-      <div class="col-md-12">
-        <div class="section-title">
-          <h3 class="title"><a href="/products/laptop">LAPTOP NEWS</a></h3>
-        </div>
-      </div>
-      <!-- /section title -->
-      <!-- Products tab & slick -->
-      <div class="col-md-12">
-        <div class="row">
-          <div class="products-tabs">
-            <!-- tab -->
-            <div id="tab1" class="tab-pane active">
-              <div class="products-slick" data-nav="#slick-nav-1">
-                <!-- product -->
-                <% @laptop.each do |product| %>
-                  <div class="product">
-                    <div class="product-img">
-                      <img src = "<%=product.img_1%>">
-                      <div class="product-label">
-                        <span class="sale">-30%</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </div>
-                    <div class="product-body">
-                      <p class="product-category"><%=product.category_pro.category_name%></p>
-                      <h3 class="product-name"><a href="#"><%= product.pro_name %></a></h3>
-                      <h4 class="product-price"><%= product.price_output %> <del class="product-old-price">$990.00</del></h4>
-                      <div class="product-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div class="product-btns">
-                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                      </div>
-                    </div>
-                    <div class="add-to-cart">
-                      <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                  </div>
-                <%end%>
-                <!-- /product -->
-              </div>
-              <div id="slick-nav-1" class="products-slick-nav"></div>
-            </div>
-            <!-- /tab -->
-          </div>
-        </div>
-      </div>
-      <!-- Products tab & slick -->
-    </div>
-    <!-- /row -->
-  </div>
-  <!-- /container -->
-</div>
-<div class="section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
-      <!-- section title -->
-      <div class="col-md-12">
-        <div class="section-title">
-          <h3 class="title"><a href="/products/tablet">TABLET NEWS</a></h3>
-        </div>
-      </div>
-      <!-- /section title -->
-      <!-- Products tab & slick -->
-      <div class="col-md-12">
-        <div class="row">
-          <div class="products-tabs">
-            <!-- tab -->
-            <div id="tab1" class="tab-pane active">
-              <div class="products-slick" data-nav="#slick-nav-1">
-                <!-- product -->
-                <% @tablet.each do |product| %>
-                  <div class="product">
-                    <div class="product-img">
-                      <img src = "<%=product.img_1%>">
-                      <div class="product-label">
-                        <span class="sale">-30%</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </div>
-                    <div class="product-body">
-                      <p class="product-category"><%=product.category_pro.category_name%></p>
-                      <h3 class="product-name"><a href="#"><%= product.pro_name %></a></h3>
-                      <h4 class="product-price"><%= product.price_output %> <del class="product-old-price">$990.00</del></h4>
-                      <div class="product-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div class="product-btns">
-                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                      </div>
-                    </div>
-                    <div class="add-to-cart">
-                      <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                  </div>
-                <%end%>
-                <!-- /product -->
-              </div>
-              <div id="slick-nav-1" class="products-slick-nav"></div>
-            </div>
-            <!-- /tab -->
-          </div>
-        </div>
-      </div>
-      <!-- Products tab & slick -->
-    </div>
-    <!-- /row -->
-  </div>
-  <!-- /container -->
-</div>
-<!-- /SECTION -->
+<%end%>

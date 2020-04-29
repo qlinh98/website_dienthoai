@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # resources :product_details
   get "/products/:page" => "products#show"
   # resources :products
-  
+
   # resources :category_pros
   # get 'product_detail/index'
   devise_for :admin_users, ActiveAdmin::Devise.config

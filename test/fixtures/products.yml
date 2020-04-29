@@ -3,8 +3,8 @@
 one:
   pro_name: MyString1
   quantity: 1
-  price_input: 5
-  price_output: 5
+  price_input: 5.0
+  price_output: 5.0
   img_1: MyString.gif
   img_2: MyString.gif
   img_3: MyString.gif
@@ -13,8 +13,8 @@ one:
 two:
   pro_name: MyString2
   quantity: 1
-  price_input: 4
-  price_output: 3
+  price_input: 4.0
+  price_output: 3.0
   img_1: MyString.png
   img_2: MyString.png
   img_3: MyString.png
@@ -23,8 +23,8 @@ two:
 phone:
   pro_name: Galaxy A51
   quantity: 15
-  price_input: 4000000
-  price_output: 7000000
+  price_input: 4000000.0
+  price_output: 7000000.0 
   img_1: MyString.jpg
   img_2: MyString.jpg
   img_3: MyString.jpg
