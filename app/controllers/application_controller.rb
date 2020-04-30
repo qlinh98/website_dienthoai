@@ -1,23 +1,22 @@
 class ApplicationController < ActionController::Base
-  include Pagy::Backend
   # check_authorization
   protect_from_forgery
-  before_action :navcategory_product, :show_product
+  before_action :navcategory_product, :show_product, :search_product
+
 
   def show_product
-    @products = Product.all
-    @categorys = CategoryPro.all
-    category = []
-    product = []
+    @products1 = Product.all
+    @categorys1 = CategoryPro.all
     @all = []
-    @categorys.each do |category|
-      @products.each do |product|
+    @categorys1.each do |category|
+      @products1.each do |product|
         if product.category_pro_id == category.id
           @all << product
         end
       end
     end
   end
+
   def navcategory_product
     @cate = []
     categorys = CategoryPro.all
@@ -26,8 +25,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  
-  
+  def search_product
+    @search = params["search"]
+    if @search.present?
+      name = @search
+      @products = Product.where(pro_name: name)
+    end
+  end
 
   def access_denied(exception)
     redirect_to admin_root_path, alert: exception.message

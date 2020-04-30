@@ -7,6 +7,7 @@ class ProductsController < InheritedResources::Base
   end
 
   def search_product
+    #redirect_to "/products/show"
     @search = params["search"]
     if @search.present?
       name = @search
@@ -38,7 +39,6 @@ class ProductsController < InheritedResources::Base
   #     end
   #   end
   # end
-  I
 
   private
 
