@@ -35,8 +35,7 @@ gem "carrierwave"
 gem "jquery-rails"
 gem "js"
 gem "pg_search"
-gem "pagy"
-# gem "simple_form"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
