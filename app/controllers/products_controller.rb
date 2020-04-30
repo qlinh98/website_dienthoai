@@ -38,7 +38,7 @@ class ProductsController < InheritedResources::Base
   #     end
   #   end
   # end
-  I
+  
 
   private
 
