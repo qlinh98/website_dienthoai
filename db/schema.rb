@@ -69,7 +69,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.decimal "money"
     t.decimal "total"
     t.bigint "product_id", null: false
-    t.bigint "order_id", null: false
+    t.bigint "order_id"
+    t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_line_items_on_order_id"
