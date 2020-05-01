@@ -28,10 +28,9 @@ class LineItemsController < InheritedResources::Base
       end
     end
   end
-
   private
 
   def line_item_params
-    params.require(:line_item).permit(:name_pro, :quantity, :money, :total, :product_id, :cart_id)
+    params.require(:line_item).permit(:name_pro, :quantity, :money, :total, :product_id, :order_id, :cart_id)
   end
 end

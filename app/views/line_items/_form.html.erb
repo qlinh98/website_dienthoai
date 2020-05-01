@@ -2,7 +2,6 @@
   <% if line_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
-
       <ul>
         <% line_item.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,37 +9,30 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name_pro %>
     <%= form.text_field :name_pro %>
   </div>
-
   <div class="field">
     <%= form.label :quantity %>
     <%= form.number_field :quantity %>
   </div>
-
   <div class="field">
     <%= form.label :money %>
     <%= form.text_field :money %>
   </div>
-
   <div class="field">
     <%= form.label :total %>
     <%= form.text_field :total %>
   </div>
-
   <div class="field">
     <%= form.label :product_id %>
     <%= form.text_field :product_id %>
   </div>
-
   <div class="field">
     <%= form.label :order_id %>
     <%= form.text_field :order_id %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
