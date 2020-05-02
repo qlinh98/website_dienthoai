@@ -5,12 +5,12 @@ class ProductsController < InheritedResources::Base
     @products1 = Product.all
     search_product
   end
-
+# binding.pry
   def search_product
     @search = params["search"]
     if @search.present?
       name = @search
-      @products1 = Product.where(pro_name: name)
+      @products1 = Product.where("pro_name like ?", "%#{name}%")
     end
   end
 

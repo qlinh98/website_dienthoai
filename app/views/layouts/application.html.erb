@@ -9,13 +9,9 @@
   </head>
   <body>
     <%= render "layouts/nav/public"%>
-    <%if notice.present?%>
-      <p class="notice"><%= notice %></p>
-    <%end%>
-    <%if alert.present?%>
-      <p class="alert"><%= alert %></p>
-    <%end%>
+    
     <%= yield %>
+   
     <%= render "layouts/footer"%>
     <%= javascript_pack_tag 'application' %>
   </body>
