@@ -3,19 +3,18 @@
   <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
     <i class="fa fa-shopping-cart"></i>
     <span>Your Cart</span>
-    <div class="qty">3</div>
+    <div class="qty"><%= cart.total_product %></div>
   </a>
   <div class="cart-dropdown">
     <div class="cart-list">
       <%= render(cart.line_items) %>
     </div>
     <div class="cart-summary">
-      <small>3 Item(s) selected</small>
+      <small><%= cart.total_product %> Item(s) selected</small>
       <h5>SUBTOTAL: <%= number_to_currency(cart.total_price) %></h5>
     </div>
-    <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
     <div class="cart-btns">
-      <a href="#">View Cart</a>
+      <a href="#">View Cart </a>
       <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>

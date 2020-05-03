@@ -64,6 +64,9 @@ class CartsController < InheritedResources::Base
       format.json { head :no_content }
     end
   end
+  def show_cart
+    render :partial=>“carts/viewcart”
+  end
 
   private
 

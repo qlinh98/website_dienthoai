@@ -1,4 +1,4 @@
 <%= form_tag( @product, method: :get) do %>
-<%= text_field_tag(:search, params[:search], class: "input", placeholder: "Search here") %>
-<%= submit_tag 'Search', name: nil, class: "search-btn" %>
+  <%= text_field_tag(:search, params[:search], class: "input", placeholder: "Search here") %>
+  <%= submit_tag 'Search', name: nil, class: "search-btn"%>
 <% end %>

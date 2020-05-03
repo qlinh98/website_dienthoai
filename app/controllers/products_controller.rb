@@ -1,11 +1,18 @@
 class ProductsController < InheritedResources::Base
   # load_and_authorize_resource
+  # before_action :search_product
 
   def show
     @products1 = Product.all
     search_product
   end
-# binding.pry
+
+  # def home
+  #   @products1 = Product.all
+  #   search_product
+  # end
+
+  # binding.pry
   def search_product
     @search = params["search"]
     if @search.present?
