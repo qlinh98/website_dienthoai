@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def show_product
     @products1 = Product.all
+    @prohomeshow = Product.limit(4)
     @categorys1 = CategoryPro.all
     @all = []
     @categorys1.each do |category|
@@ -19,13 +20,13 @@ class ApplicationController < ActionController::Base
     search_product
   end
 
-  def search_product
-    @search = params["search"]
-    if @search.present?
-      name = @search
-      @products1 = Product.where("pro_name like ?", "%#{name}%")
-    end
-  end
+  # def search_product
+  #   @search = params["search"]
+  #   if @search.present?
+  #     name = @search
+  #     @products1 = Product.where("pro_name like ?", "%#{name}%")
+  #   end
+  # end
 
   def navcategory_product
     @cate = []
@@ -34,6 +35,42 @@ class ApplicationController < ActionController::Base
       @cate << category
     end
   end
+
+
+  # def search_product
+  #   @search = params["search"]
+  #   if @search.present?
+  #     name = @search
+  #     @products = Product.where(pro_name: name)
+  #   end
+  # end
+
+  def search_product
+
+    if params[:search].present?
+      @products1 = Product.whose_name_starts_with(params[:search])
+    else
+      @products1 = Product.all
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end  
+    # @search = params["search"]
+    # if @search.present?
+    #   name = @search
+    #   @products1 = Product.where("pro_name like ?", "%#{name}%")
+    # end
+  end
+
+
+  # def index
+  #   if params[:search].present?
+  #     places = Place.search(params[:search])
+  #   else
+  #     @places = Place.all
+  #   end
+  # end
 
 
   def access_denied(exception)

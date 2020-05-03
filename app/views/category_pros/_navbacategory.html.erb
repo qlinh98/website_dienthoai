@@ -2,6 +2,7 @@
   <li class="active"><a href="/">Home</a></li>
   <li><a href="../products/show">All</a></li>
   <% @cate.each do |navcategory| %>
-  <li><a href=""><%= navcategory.category_name %></a></li>
+  <li><%= link_to "#{navcategory.category_name}", "../products/smartphone" %></li>
   <% end %>
 </ul>
+
