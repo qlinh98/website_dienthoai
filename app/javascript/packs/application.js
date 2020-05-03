@@ -10,7 +10,6 @@ require("@rails/activestorage").start()
 require("channels")
 
 // require("styles")
-
 // other js
 
 // import('styles/bootstrap.min.css');

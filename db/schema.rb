@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 2020_04_30_103210) do
     t.decimal "money"
     t.decimal "total"
     t.bigint "product_id", null: false
-    t.bigint "order_id"
-    t.bigint "cart_id"
+    t.bigint "order_id", null: false
+    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
@@ -135,6 +135,10 @@ ActiveRecord::Schema.define(version: 2020_04_30_103210) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "provider"
     t.string "uid"
     t.string "name"

@@ -2,28 +2,27 @@ class ProductsController < InheritedResources::Base
   # load_and_authorize_resource
 
   def show
-    @products = Product.all
+    @products1 = Product.all
     search_product
   end
-
+# binding.pry
   def search_product
-    #redirect_to "/products/show"
     @search = params["search"]
     if @search.present?
       name = @search
-      @products = Product.where(pro_name: name)
+      @products1 = Product.where("pro_name like ?", "%#{name}%")
     end
   end
 
   # fill product folow category
-  def fill_product
-    if params["search"]
-      @filter = params["search"]["flavors"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
-      @cocktails = @filter.empty? ? Cocktail.all : Cocktail.all.tagged_with(@filter, any: true)
-    else
-      @cocktails = Cocktail.all
-    end
-  end
+  # def fill_product
+  #   if params["search"]
+  #     @filter = params["search"]["flavors"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
+  #     @cocktails = @filter.empty? ? Cocktail.all : Cocktail.all.tagged_with(@filter, any: true)
+  #   else
+  #     @cocktails = Cocktail.all
+  #   end
+  # end
 
   # def show
   #   @product1 = []
