@@ -17,9 +17,12 @@ class Product < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  # include PgSearch
-  # pg_search_scope :search, against: [:pro_name]
-  #
+  include PgSearch
+  pg_search_scope :whose_name_starts_with,
+                  :against => :pro_name,
+                  :using => {
+                    :tsearch => {:prefix => true}
+                  }
   #show value name product in activeadmin
   def name
     return self.pro_name
