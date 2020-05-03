@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   # check_authorization
+  include CurrentCart
+  before_action :set_cart
   protect_from_forgery
   before_action :navcategory_product, :show_product, :search_product
-
 
   def show_product
     @products1 = Product.all

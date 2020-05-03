@@ -19,4 +19,13 @@ class PublicController < ApplicationController
   #     @cate << category
   #   end
   # end
+  # def main
+  #   respond_to do |format|
+  #     format.html {
+  #       redirect_to :root,
+  #                   notice: "Trang chu hommmmm"
+  #     }
+  #     format.json { head :no_content }
+  #   end
+  # end
 end

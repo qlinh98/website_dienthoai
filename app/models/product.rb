@@ -17,9 +17,9 @@ class Product < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  include PgSearch
-  pg_search_scope :search, against: [:pro_name]
-
+  # include PgSearch
+  # pg_search_scope :search, against: [:pro_name]
+  #
   #show value name product in activeadmin
   def name
     return self.pro_name
@@ -33,7 +33,7 @@ class Product < ApplicationRecord
 
   # ensure that there are no line items referencing this product
   def ensure_not_referenced_by_any_line_item
-    unless line_items.empty?
+    unless line_item.empty?
       errors.add(:base, "Line Items present")
       throw :abort
     end

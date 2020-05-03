@@ -6,7 +6,7 @@ one:
   address: MyText
   pay_type: 1
   total: 9.99
-  cart: one
+  
 
 two:
   name: MyString
@@ -14,4 +14,4 @@ two:
   address: MyText
   pay_type: 1
   total: 9.99
-  cart: two
+ 

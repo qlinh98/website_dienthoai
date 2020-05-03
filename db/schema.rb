@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_032815) do
+ActiveRecord::Schema.define(version: 2020_04_30_103210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,16 +42,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "admin_users_roles", id: false, force: :cascade do |t|
-    t.bigint "admin_user_id"
-    t.bigint "role_id"
-    t.index ["admin_user_id", "role_id"], name: "index_admin_users_roles_on_admin_user_id_and_role_id"
-    t.index ["admin_user_id"], name: "index_admin_users_roles_on_admin_user_id"
-    t.index ["role_id"], name: "index_admin_users_roles_on_role_id"
-  end
-
   create_table "carts", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
@@ -65,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
 
   create_table "line_items", force: :cascade do |t|
     t.string "name_pro"
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.decimal "money"
     t.decimal "total"
     t.bigint "product_id", null: false
@@ -73,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
@@ -83,10 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.text "address"
     t.integer "pay_type"
     t.decimal "total"
-    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -127,8 +118,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
   create_table "products", force: :cascade do |t|
     t.string "pro_name"
     t.integer "quantity"
-    t.float "price_input"
-    t.float "price_output"
+    t.decimal "price_input"
+    t.decimal "price_output"
     t.string "img_1"
     t.string "img_2"
     t.string "img_3"
@@ -136,16 +127,6 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_pro_id"], name: "index_products_on_category_pro_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -163,9 +144,9 @@ ActiveRecord::Schema.define(version: 2020_04_24_032815) do
   end
 
   add_foreign_key "carts", "users"
+  add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
-  add_foreign_key "orders", "carts"
   add_foreign_key "polls", "products"
   add_foreign_key "polls", "users"
   add_foreign_key "product_details", "products"

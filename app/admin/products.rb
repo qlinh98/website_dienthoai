@@ -6,7 +6,7 @@ ActiveAdmin.register Product do
   # Uncomment all parameters which should be permitted for assignment
   #
   #scope :all, :default => true
-  
+
   # Ex:- scope :active, -> {where(:active => true)}
   # Ex:- scope :active, -> {where(:active => true)}
 
@@ -19,6 +19,5 @@ ActiveAdmin.register Product do
   #   permitted << :other if params[:action] == 'create' && current_admin_user.admin?
   #   permitted
   # end
-  
 
 end

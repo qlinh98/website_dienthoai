@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resources :line_items
   resources :orders
   resources :carts
+  resources :public
   # resources :polls
   # resources :product_details
+  
   get "/products/*page" => "products#show"
   resources :products
 
