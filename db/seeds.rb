@@ -8,6 +8,7 @@
 # if Rails.env.development?
 AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password", permission: 1) 
 AdminUser.create!(email: "linh@gmail.com", password: "123456", password_confirmation: "123456", permission: 0)
+AdminUser.create!(email: "quocbao759@gmail.com", password: "quocbao759", password_confirmation: "quocbao759", permission: 0)
 
 CategoryPro.create!(category_name: "Smartphone")
 CategoryPro.create!(category_name: "Laptop")

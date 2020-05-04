@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   resources :carts
   resources :public
   # resources :polls
-  # resources :product_details
+  resources :product_details
   
   get "/products/*page" => "products#show"
   resources :products
 
   # resources :category_pros
-  # get 'product_detail/index'
+  get 'product_detail/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #resources :products
