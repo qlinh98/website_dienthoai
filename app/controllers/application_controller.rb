@@ -38,9 +38,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def search_product
-    
     if params[:search].present?
       @products1 = Product.whose_name_starts_with(params[:search])
       # redirect_to '/products/show' + '?search='
@@ -51,12 +49,8 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.html
       format.js
-    end  
+    end
   end
-
-
-
-
 
   def access_denied(exception)
     redirect_to admin_root_path, alert: exception.message
