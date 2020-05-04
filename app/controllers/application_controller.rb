@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   def show_product
     @products1 = Product.all
-    @prohomeshow = Product.limit(4)
     @categorys1 = CategoryPro.all
     @all = []
     @categorys1.each do |category|
@@ -46,9 +45,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def search_product
-
+    
     if params[:search].present?
       @products1 = Product.whose_name_starts_with(params[:search])
+      # redirect_to '/products/show' + '?search='
+      redirect_to "/products/show?search=#{params[:search]}"
     else
       @products1 = Product.all
     end
