@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   # def search_product
   #   @search = params["search"]
   #   if @search.present?
@@ -45,7 +44,6 @@ class ApplicationController < ActionController::Base
   # end
 
   def search_product
-    
     if params[:search].present?
       @products1 = Product.whose_name_starts_with(params[:search])
       # redirect_to '/products/show' + '?search='
@@ -56,14 +54,13 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.html
       format.js
-    end  
+    end
     # @search = params["search"]
     # if @search.present?
     #   name = @search
     #   @products1 = Product.where("pro_name like ?", "%#{name}%")
     # end
   end
-
 
   # def index
   #   if params[:search].present?
@@ -72,7 +69,6 @@ class ApplicationController < ActionController::Base
   #     @places = Place.all
   #   end
   # end
-
 
   def access_denied(exception)
     redirect_to admin_root_path, alert: exception.message
