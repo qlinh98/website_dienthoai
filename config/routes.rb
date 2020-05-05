@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # resources :category_pros
   get 'product_detail/index'
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #resources :products
