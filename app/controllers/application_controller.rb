@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include CurrentCart
   before_action :set_cart
   protect_from_forgery
-  before_action :navcategory_product, :show_product, :show_product_detail
+  before_action :navcategory_product, :show_product
 
   def show_product
     @products1 = Product.all

@@ -101,7 +101,7 @@ ol {
 
 .primary-btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 5px 10px;
   background-color: #d10024;
   border: none;
   border-radius: 40px;
@@ -1967,7 +1967,10 @@ textarea.input {
   font-size: 24px;
   color: #d10024;
 }
-
+.price-product {
+  font-size: 14px;
+  text-align: right;
+}
 .order-details .payment-method {
   margin: 30px 0px;
 }
