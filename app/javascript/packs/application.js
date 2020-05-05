@@ -42,4 +42,4 @@ require('main')
 // import '../stylesheets/nouislider.min'
 // import '../stylesheets/font-awesome.min'
 // import '../stylesheets/style'
-import 'css/site.scss'
+// import 'css/site.scss'

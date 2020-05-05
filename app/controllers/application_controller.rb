@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   # check_authorization
+  protect_from_forgery
   include CurrentCart
+  # helper_method :current_user
+
   before_action :set_cart
   protect_from_forgery
   before_action :navcategory_product, :show_product
@@ -63,6 +66,13 @@ class ApplicationController < ActionController::Base
       format.js { head :forbidden, content_type: "text/html" }
     end
   end
+
+  # private
+
+  # def current_user
+  #   return unless session[:user_id]
+  #   @current_user ||= User.find(session[:user_id])
+  # end
 
   # rescue_from Exception, with: :render_500
   # # rescue_from UnauthorizedException, with: :render_401

@@ -11,6 +11,9 @@ class CartsController < InheritedResources::Base
   # GET /carts/1.json
   def show
     @cart_view = session[:cart_id]
+    if current_user.present?
+      @cart = current_user.cart
+    end
   end
 
   # GET /carts/new
@@ -65,9 +68,9 @@ class CartsController < InheritedResources::Base
     end
   end
 
-  def show_cart
-    render :partial => “carts / viewcart”
-  end
+  # def show_cart
+  #   render :partial => “carts / viewcart”
+  # end
 
   private
 

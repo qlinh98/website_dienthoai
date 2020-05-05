@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :line_items
   resources :orders
-
-  get "/carts/:id", to: "carts#show", as: "cart"
   resources :carts
   resources :public
   # resources :polls
@@ -18,6 +16,9 @@ Rails.application.routes.draw do
   #resources :products
   devise_for :users,
     controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  # devise_scope :user do
+  #   get "/users/sign_out" => "devise/sessions#destroy"
+  # end
   root "public#main"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

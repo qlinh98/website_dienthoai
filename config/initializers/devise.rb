@@ -18,13 +18,13 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'nguyenngoclam3298@gmail.com'
+  config.mailer_sender = "nguyenngoclam3298@gmail.com"
   config.reconfirmable = false
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
-  config.omniauth :google_oauth2, 'GOOGLE_OAUTH2_APP_ID', 'GOOGLE_OAUTH2_APP_SECRET', { scope: "email" }
-  config.omniauth :facebook, '256008282098347', '7946010cbdcfb3a067cd4d222e5081c5', { scope: "email" }
+  config.omniauth :google_oauth2, "GOOGLE_OAUTH2_APP_ID", "GOOGLE_OAUTH2_APP_SECRET", { scope: "email" }
+  config.omniauth :facebook, "256008282098347", "7946010cbdcfb3a067cd4d222e5081c5", { scope: "email" }
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
@@ -32,7 +32,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
