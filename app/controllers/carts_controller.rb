@@ -10,6 +10,7 @@ class CartsController < InheritedResources::Base
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @cart_view = session[:cart_id]
   end
 
   # GET /carts/new
@@ -25,7 +26,6 @@ class CartsController < InheritedResources::Base
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
-
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: "Cart was successfully created." }
@@ -64,8 +64,9 @@ class CartsController < InheritedResources::Base
       format.json { head :no_content }
     end
   end
+
   def show_cart
-    render :partial=>“carts/viewcart”
+    render :partial => “carts / viewcart”
   end
 
   private

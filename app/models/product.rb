@@ -17,14 +17,14 @@ class Product < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_line_item
   before_save do
-    self.pro_name.downcase!     
+    self.pro_name.downcase!
   end
   include PgSearch
   pg_search_scope :whose_name_starts_with,
                   :against => :pro_name,
                   :using => {
                     :tsearch => { :prefix => true,
-                      :any_word => true }
+                                  :any_word => true },
                   }
   #show value name product in activeadmin
   def name

@@ -1,6 +1,6 @@
 <!-- Cart -->
-<div class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+<div class="dropdown" id="viewcart">
+  <a href="carts/view" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" >
     <i class="fa fa-shopping-cart"></i>
     <span>Your Cart</span>
     <div class="qty"><%= cart.total_product %></div>
@@ -14,9 +14,18 @@
       <h5>SUBTOTAL: <%= number_to_currency(cart.total_price) %></h5>
     </div>
     <div class="cart-btns">
-      <a href="#">View Cart </a>
-      <a href="/orders/form">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+      <%= link_to 'View Cart', controller: "carts", action: "show", id: @cart.id%>
+      <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 </div>
 <!-- /Cart -->
+<script>
+  $(document).ready(function(){alert ('test');
+      $('#viewcart').click(function () {
+        alert ('test');
+      }
+  );
+  
+  })
+</script>
