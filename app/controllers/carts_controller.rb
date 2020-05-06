@@ -11,6 +11,9 @@ class CartsController < InheritedResources::Base
   # GET /carts/1.json
   def show
     @cart_view = session[:cart_id]
+    if current_user.present?
+      @cart = current_user.cart
+    end
   end
 
   # GET /carts/new
@@ -58,8 +61,7 @@ class CartsController < InheritedResources::Base
     session[:cart_id] = nil
     respond_to do |format|
       format.html {
-        redirect_to :root,
-                    notice: "Your cart is currently empty"
+        redirect_back(fallback_location: root_path)
       }
       format.json { head :no_content }
     end
