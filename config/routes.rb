@@ -5,14 +5,13 @@ Rails.application.routes.draw do
   get "/carts/:id", to: "carts#show", as: "cart"
   resources :carts
   resources :public
-  # resources :polls
+  resources :polls
   resources :product_details
 
-  get "/products/*page" => "products#show"
   resources :products
 
   # resources :category_pros
-  get "product_detail/index"
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #resources :products

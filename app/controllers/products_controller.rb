@@ -5,6 +5,8 @@ class ProductsController < InheritedResources::Base
   def show
     @products1 = Product.all
     search_product
+    @product = Product.includes(:product_detail).find(params[:id])
+    @poll = Product.includes(:poll).find(params[:id])
   end
 
   # def home
