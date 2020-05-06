@@ -21,12 +21,12 @@ require("channels")
 
 // other js
 
-require('./jquery.min.js')
-require('./bootstrap.min.js')
-require('./slick.min.js')
-require('./nouislider.min.js')
-require('./jquery.zoom.min.js')
-require('./main.js')
+require('packs/jquery.min')
+require('packs/bootstrap.min')
+require('packs/slick.min')  
+require('packs/nouislider.min')
+require('packs/jquery.zoom.min') 
+require('packs/main')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -42,3 +42,4 @@ require('./main.js')
 // import '../stylesheets/nouislider.min'
 // import '../stylesheets/font-awesome.min'
 // import '../stylesheets/style'
+// import "css/site.scss"

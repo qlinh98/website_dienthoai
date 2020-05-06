@@ -1,6 +1,14 @@
-@import "bootstrap.min.css";
-// import 'slick.css'
-// import 'slick-them.css'
-// import 'nouislider.min.css'
-// import 'font-awesome.min.css'
-// import 'style.css'
+@import "stylesheets/bootstrap.min";
+@import "stylesheets/slick";
+@import "stylesheets/slick-theme";
+@import "stylesheets/nouislider.min";
+@import "stylesheets/font-awesome.min";
+@import "stylesheets/style";
+
+
+// @import "tailwindcss/base";
+
+// @import "tailwindcss/components";
+// @import "components/buttons"; // custom components that map to path app/javascript/styles/components/buttons.css for example
+
+// @import "tailwindcss/utilities";

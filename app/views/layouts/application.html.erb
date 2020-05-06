@@ -8,16 +8,25 @@
   </head>
   <body>
     <%= render "layouts/nav/public"%>
-    <div class="container">
-      <%if notice.present?%>
-        <p class="notice"><%= notice %></p>
-      <%end%>
-      <%if alert.present?%>
-        <p class="alert"><%= alert %></p>
-      <%end%>
-    </div>
+    <%if notice.present?%>
+      <div class="container">
+        <div class="alert alert-success">
+          <strong>
+            <p class="notice"><%= notice %></p>
+          </strong>
+        </div>
+      </div>
+    <%end%>
+    <%if alert.present? %>
+      <div class="container">
+        <div class="alert alert-success">
+          <strong>
+            <p class="alert"><%= alert %></p>
+          </strong>
+        </div>
+      </div>
+    <%end%>
     <%= yield %>
     <%= render "layouts/footer"%>
-    <%= javascript_pack_tag 'application' %>
   </body>
 </html>

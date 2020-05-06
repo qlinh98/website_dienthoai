@@ -278,6 +278,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    slick_rails (1.5.9)
+      railties (>= 3.1)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -349,6 +351,7 @@ DEPENDENCIES
   rolify
   sass-rails (>= 6)
   selenium-webdriver
+  slick_rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
