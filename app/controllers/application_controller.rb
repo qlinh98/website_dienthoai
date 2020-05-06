@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   # check_authorization
+  protect_from_forgery 
   include CurrentCart
   before_action :set_cart
-  protect_from_forgery
   before_action :navcategory_product, :show_product
 
   def show_product
@@ -42,7 +42,8 @@ class ApplicationController < ActionController::Base
     if params[:search].present?
       @products1 = Product.whose_name_starts_with(params[:search])
       # redirect_to '/products/show' + '?search='
-      redirect_to "/products/show?search=#{params[:search]}"
+      # redirect_to "/products/show?search=#{params[:search]}"
+      redirect_to products_path(:search => params[:search] )
     else
       @products1 = Product.all
     end
