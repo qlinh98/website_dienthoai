@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :navcategory_product, :show_product, :poll_product
 
   def show_product
-    @products1 = Product.all
+    @products1 = Product.all.sort_by {|desc| desc.created_at }.reverse
     @categorys1 = CategoryPro.all
     @all = []
     @categorys1.each do |category|

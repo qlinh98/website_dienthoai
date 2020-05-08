@@ -19,6 +19,7 @@
             <div id="tab1" class="tab-pane active">
               <div class="products-slick" data-nav="#slick-nav-1">
                 <!-- product -->
+  getProductByCategory(category_product.id)
                 <% @products1.each do |product_category| %>
                   <% if product_category.category_pro_id ==  category_product.id%>
                     <div class="product">
@@ -32,7 +33,7 @@
                       <div class="product-body">
                         <p class="product-category"><%=product_category.category_pro.category_name%></p>
                         <h3 class="product-name"><%= link_to product_category.pro_name, product_category %></h3>
-                        <h4 class="product-price"><%= product_category.price_output %> <del class="product-old-price">$990.00</del></h4>
+                        <h4 class="product-price"><%= product_category.price_output %> $<del class="product-old-price">$990.00</del></h4>
                         <div class="product-rating">
                           <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i>
