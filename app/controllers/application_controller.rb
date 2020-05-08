@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   # check_authorization
-  protect_from_forgery 
+  protect_from_forgery
   include CurrentCart
   before_action :set_cart
-  before_action :navcategory_product, :show_product
+  before_action :navcategory_product, :show_product, :poll_product
 
   def show_product
     @products1 = Product.all
@@ -17,6 +17,13 @@ class ApplicationController < ActionController::Base
       end
     end
     search_product
+  end
+
+  def poll_product
+    if @current_user.present?
+      @user = @current_user.id
+    end
+    
   end
 
   # def search_product
@@ -43,7 +50,7 @@ class ApplicationController < ActionController::Base
       @products1 = Product.whose_name_starts_with(params[:search])
       # redirect_to '/products/show' + '?search='
       # redirect_to "/products/show?search=#{params[:search]}"
-      redirect_to products_path(:search => params[:search] )
+      redirect_to products_path(:search => params[:search])
     else
       @products1 = Product.all
     end

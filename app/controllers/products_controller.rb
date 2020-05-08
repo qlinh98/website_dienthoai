@@ -7,6 +7,32 @@ class ProductsController < InheritedResources::Base
     search_product
     @product = Product.includes(:product_detail).find(params[:id])
     @poll = Product.includes(:poll).find(params[:id])
+    sum_vote
+  end
+
+  def sum_vote
+    @n = 0
+    @dem = 0
+    @one_star = 0
+    @two_star = 0
+    @three_star = 0
+    @four_star = 0
+    @five_star = 0
+    @poll.poll.each do |poll|
+      @n += poll.vote_count
+      @dem += 1
+      if poll.vote_count == 1
+        @one_star += 1
+      elsif poll.vote_count == 2
+        @two_star += 1
+      elsif poll.vote_count == 3
+        @three_star += 1
+      elsif poll.vote_count == 4
+        @four_star += 1
+      else
+        @five_star += 1
+      end
+    end
   end
 
   # def home
@@ -44,6 +70,19 @@ class ProductsController < InheritedResources::Base
   #     @product = Product.all
   #     @product.each do |product2|
   #       @product1 << product2
+  #     end
+  #   end
+  # end
+
+  # def create
+  #   @poll = Poll.new(poll_params)
+  #   respond_to do |format|
+  #     if @poll.save
+  #       format.html { redirect_to @poll, notice: "Cart was successfully created." }
+  #       format.json { render :show, status: :created, location: @poll }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @poll.errors, status: :unprocessable_entity }
   #     end
   #   end
   # end
