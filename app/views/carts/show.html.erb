@@ -19,7 +19,7 @@
           </td>
           <td><%= item.product.pro_name %></td>
           <td><%= item.quantity %></td>
-          <td><%= item.product.price_output %></td>
+          <td><%= item.product.price_output %>$</td>
           <td class="item_price"><%= number_to_currency(item.total_price) %></td>
           <td><button type="button" class="btn btn-danger"><%= link_to "", item, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-close"%></button></td>
         </tr>
@@ -32,7 +32,7 @@
         <th></th>
         <th></th>
         <th class="total_cell"><%= number_to_currency(@cart.total_price) %></th>
-        <th><button type="button" class="btn btn-success">Check Out</button></th>
+        <th><button type="button" class="btn btn-success"><a href="/orders/new">Check Out</button></th></a>
       </tr>
       <tr>
         <button type="button" class="btn btn-warning"><%= link_to "Delete Cart", @cart, method: :delete, data: { confirm: 'Are you sure?' }%></button>

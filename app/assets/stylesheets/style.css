@@ -111,6 +111,8 @@ ol {
   text-align: center;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  float: right;
+  margin-bottom: 10px;
 }
 
 .primary-btn:hover,
@@ -1975,6 +1977,7 @@ textarea.input {
 .order-details .order-submit {
   display: block;
   margin-top: 30px;
+  
 }
 
 /*=========================================================
