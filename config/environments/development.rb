@@ -10,7 +10,7 @@ Rails.application.configure do
     domain:         'localhost:3000',
     address:       'smtp.gmail.com',
     port:          '587',
-    authentication: :plain,
+    authentication: 'plain',
     enable_starttls_auto: true
   }
   # In the development environment your application's code is reloaded on
