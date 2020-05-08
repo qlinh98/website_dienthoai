@@ -1,4 +1,5 @@
 class CartsController < InheritedResources::Base
+  before_action :authenticate_user!, only: [:show, :create]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /carts
@@ -67,9 +68,9 @@ class CartsController < InheritedResources::Base
     end
   end
 
-  def show_cart
-    render :partial => “carts / viewcart”
-  end
+  # def show_cart
+  #   render :partial => “carts / viewcart”
+  # end
 
   private
 

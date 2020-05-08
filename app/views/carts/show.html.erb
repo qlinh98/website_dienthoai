@@ -32,10 +32,11 @@
         <th></th>
         <th></th>
         <th class="total_cell"><%= number_to_currency(@cart.total_price) %></th>
-        <th><button type="button" class="btn btn-success">Check Out</button></th>
+        <th><button type="button" class="btn btn-success"><a href="/orders/new">Checkout <i class="fa fa-arrow-circle-right"></i></a></button>
+        </th>
       </tr>
       <tr>
-        <button type="button" class="btn btn-warning"><%= link_to "Delete Cart", @cart, method: :delete, data: { confirm: 'Are you sure?' }%></button>
+        <button type="button" class="btn btn-warning"><%= link_to "Delete Cart", @cart, method: :delete, data: { confirm: 'Are you sure?' }%></button><small> <%= @cart.total_item_product %> Item(s)</small>
       </tr>
     </thead>
   </table>

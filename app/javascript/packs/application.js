@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+// require.context('../css/fonts/', true, /\.(eot|ttf|woff|woff2|otf)$/i)
 
 // require("styles")
 // other js
@@ -21,12 +22,12 @@ require("channels")
 
 // other js
 
-require('packs/jquery.min')
-require('packs/bootstrap.min')
-require('packs/slick.min')  
-require('packs/nouislider.min')
-require('packs/jquery.zoom.min') 
-require('packs/main')
+// require('packs/jquery.min')
+// require('packs/bootstrap.min')
+// require('packs/slick.min')
+// require('packs/nouislider.min')
+// require('packs/jquery.zoom.min')
+// require('packs/main')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -42,4 +43,14 @@ require('packs/main')
 // import '../stylesheets/nouislider.min'
 // import '../stylesheets/font-awesome.min'
 // import '../stylesheets/style'
+// import "../fonts/fontawesome-webfont.eot"
+// import "../fonts/slick.ttf"
+// import "../fonts/slick.svg"
+// import "../fonts/slick.eot"
+// import "../fonts/slick.woff"
+// import "../fonts/FontAwesome.otf"
+// import "../fonts/fontawesome-webfont.ttf"
+// import "../fonts/fontawesome-webfont.svg"
+// import "../fonts/fontawesome-webfont.woff"
+// import "../fonts/fontawesome-webfont.woff2"
 // import "css/site.scss"

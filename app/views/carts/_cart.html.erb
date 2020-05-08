@@ -1,32 +1,26 @@
 <!-- Cart -->
-<div class="dropdown" id="viewcart">
+<div class="dropdown" id="viewcart" value = "<%=@cart.id%>" >
   <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" >
     <i class="fa fa-shopping-cart"></i>
     <span>Your Cart</span>
-    <div class="qty"><%= cart.total_product %></div>
+    <div class="qty"><%= cart.total_item_product %></div>
   </a>
   <div class="cart-dropdown">
     <div class="cart-list">
       <%= render(cart.line_items) %>
     </div>
     <div class="cart-summary">
-      <small><%= cart.total_product %> Item(s) selected</small>
+      <small><%= cart.total_item_product %> Item(s) selected</small>
       <h5>SUBTOTAL: <%= number_to_currency(cart.total_price) %></h5>
-    </div>
-    <div class="cart-btns">
-      <%= link_to 'View Cart', controller: "carts", action: "show", id: @cart.id%>
-      <a href="/orders/new">Checkout <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 </div>
 <!-- /Cart -->
-
 <script>
   $(document).ready(function(){
       $('#viewcart').click(function () {
-        alert ('hello');
+        window.location.href='/carts/' + $(this).attr("value");
       }
   );
   })
-  
 </script>
