@@ -30,7 +30,6 @@ class OrdersController < InheritedResources::Base
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
-   
     respond_to do |format|
       if @order.save
         
@@ -38,7 +37,7 @@ class OrdersController < InheritedResources::Base
         session[:cart_id] = nil 
 
         #ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
-        OrderMailer.received(@order).deliver_later
+        OrderMailer.received(@order).deliver
         # flash[:success] = "Order Sucessfuly Completed.."
         # redirect_to :root
         format.html { redirect_to :root , notice: "Order Sucessfuly Completed.." } # I18n.t('.thanks')
