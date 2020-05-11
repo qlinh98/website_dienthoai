@@ -94,14 +94,6 @@
             </table>
           </div>
           <div class="add-to-cart">
-            <div class="qty-label">
-              Qty
-              <div class="input-number">
-                <input type="number">
-                <span class="qty-up">+</span>
-                <span class="qty-down">-</span>
-              </div>
-            </div>
             <%= button_to 'Add to Cart', line_items_path(:product_id => params[:id]), class: "add-to-cart-btn fa fa-shopping-cart" %>
           </div>
         </div>
@@ -215,7 +207,7 @@
                   <div id="rating">
                     <div class="rating-avg">
                       <% if @dem != 0%>
-                        <span><%= (@n.to_f/@dem)%> / 5</span>
+                        <span><%= (@n.to_f/@dem).round(1)%> / 5</span>
                       <%else%>
                         <span>0 / 5</span>
                       <%end%>
@@ -332,10 +324,20 @@
                     <%= form_with(model: [ @product, @product.poll.build ], local: true, class: "review-form") do |form| %>
                       <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
                       <%= form.number_field :vote_count, class: "input" %>
+                      <div class="input-rating">
+                        <span>Your Rating: </span>
+                        <div class="stars">
+                          <%= form.radio_button :vote_count, 5, id: 'star5'%><label for="star5"></label>
+                          <%= form.radio_button :vote_count, 4, id: 'star4'%><label for="star4"></label>
+                          <%= form.radio_button :vote_count, 3, id: 'star3'%><label for="star3"></label>
+                          <%= form.radio_button :vote_count, 2, id: 'star2'%><label for="star2"></label>
+                          <%= form.radio_button :vote_count, 1, id: 'star1'%><label for="star1"></label>
+                        </div>
+                      </div>
                       <%if current_user.present?%>
                         <%= form.hidden_field :user_id, class: "input", value: current_user.id %>
                       <%end%>
-                      <%= form.submit%>
+                      <%= form.submit "Review", class: "primary-btn" %>
                     <% end %>
                   </div>
                 </div>
