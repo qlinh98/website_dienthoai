@@ -1,4 +1,5 @@
 class PollsController < InheritedResources::Base
+  before_action :authenticate_user!, only: [:create]
   def create
     @product = Product.find(params[:product_id])
     @poll = @product.poll.create(poll_params)
@@ -8,6 +9,8 @@ class PollsController < InheritedResources::Base
   private
 
   def poll_params
-    params.require(:poll).permit(:comment, :vote_count, :user_id)
+   
+      params.require(:poll).permit(:comment, :vote_count, :user_id)
+    
   end
 end

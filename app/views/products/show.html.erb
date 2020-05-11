@@ -332,8 +332,10 @@
                     <%= form_with(model: [ @product, @product.poll.build ], local: true, class: "review-form") do |form| %>
                       <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
                       <%= form.number_field :vote_count, class: "input" %>
-                      <%= form.text_field :user_id, class: "input" %>
-                      <%= form.submit %>
+                      <%if current_user.present?%>
+                        <%= form.hidden_field :user_id, class: "input", value: current_user.id %>
+                      <%end%>
+                      <%= form.submit%>
                     <% end %>
                   </div>
                 </div>
