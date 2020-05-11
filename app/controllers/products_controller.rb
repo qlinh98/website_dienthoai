@@ -62,7 +62,7 @@ class ProductsController < InheritedResources::Base
     @search = params["search"]
     if @search.present?
       name = @search
-      @product = Product.where("pro_name like ?", "%#{name}%")
+      @product = Product.where("pro_name like ?", "%#{name}%").paginate(:page => params[:page], :per_page => 9)
     end
   end
 
