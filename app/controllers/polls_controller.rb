@@ -3,7 +3,7 @@ class PollsController < InheritedResources::Base
   def create
     @product = Product.find(params[:product_id])
     @poll = @product.poll.create(poll_params)
-    redirect_to product_path(@product)
+    redirect_to product_path(@product) 
   end
 
   private

@@ -298,7 +298,7 @@
                       <% @poll.poll.each do |poll|%>
                         <li>
                           <div class="review-heading">
-                            <h5 class="name"><%= poll.user_id%></h5>
+                            <h6 class="name"><%= poll.user.email.chomp("@gmail.com")%></h6>
                             <p class="date"><%= poll.created_at%></p>
                             <div class="review-rating">
                               <% [1,2,3,4,5].each do | x | %>
@@ -321,9 +321,8 @@
                 <!-- /Reviews -->
                 <div class="col-md-3">
                   <div id="review-form">
-                    <%= form_with(model: [ @product, @product.poll.build ], local: true, class: "review-form") do |form| %>
+                    <%= form_with(model: [ @product, @product.poll.build ], remote: true, class: "review-form") do |form| %>
                       <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
-                      <%= form.number_field :vote_count, class: "input" %>
                       <div class="input-rating">
                         <span>Your Rating: </span>
                         <div class="stars">
