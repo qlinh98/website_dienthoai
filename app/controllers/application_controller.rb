@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
   before_action :navcategory_product, :show_product, :poll_product
 
+  def cart
+    if current_user.present?
+    end
+  end
+
   def show_product
     @products1 = Product.all.sort_by { |desc| desc.created_at }.reverse
     @categorys1 = CategoryPro.all

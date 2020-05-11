@@ -48,7 +48,9 @@
         <div class="col-md-3 clearfix">
           <div class="header-ctn">
             <!-- Cart -->
-            <%= render @cart %>
+            <%if current_user.present?%>
+              <%= render @cart %>
+            <%end%>
             <!-- /Cart -->
             <!-- Menu Toogle -->
             <div class="menu-toggle">
