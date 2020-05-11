@@ -3,7 +3,7 @@ class ProductsController < InheritedResources::Base
   # before_action :search_product
 
   def show
-    @products1 = Product.all
+    @products1 = Product.all.sort_by {|desc| desc.created_at }.reverse
     search_product
     @product = Product.includes(:product_detail).find(params[:id])
     @poll = Product.includes(:poll).find(params[:id])

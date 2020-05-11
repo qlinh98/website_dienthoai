@@ -1,20 +1,13 @@
 class PollsController < InheritedResources::Base
   def create
-    @poll = Poll.new(poll_params)
-    respond_to do |format|
-      if @poll.save
-        format.html { redirect_to @poll, notice: "Cart was successfully created." }
-        format.json { render :show, status: :created, location: @poll }
-      else
-        format.html { render :new }
-        format.json { render json: @poll.errors, status: :unprocessable_entity }
-      end
-    end
+    @product = Product.find(params[:product_id])
+    @poll = @product.poll.create(poll_params)
+    redirect_to product_path(@product)
   end
 
   private
 
   def poll_params
-    params.require(:poll).permit(:comment, :vote_count, :product_id, :user_id)
+    params.require(:poll).permit(:comment, :vote_count, :user_id)
   end
 end

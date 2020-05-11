@@ -112,7 +112,6 @@
         <div id="product-tab">
           <!-- product tab nav -->
           <ul class="tab-nav">
-            <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
             <li><a data-toggle="tab" href="#tab2">Details</a></li>
             <li><a data-toggle="tab" href="#tab3">Reviews (<%= @dem%>)</a></li>
           </ul>
@@ -120,13 +119,6 @@
           <!-- product tab content -->
           <div class="tab-content">
             <!-- tab1  -->
-            <div id="tab1" class="tab-pane fade in active">
-              <div class="row">
-                <div class="col-md-12">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-              </div>
-            </div>
             <!-- /tab1  -->
             <!-- tab2  -->
             <div id="tab2" class="tab-pane fade in">
@@ -335,7 +327,16 @@
                   </div>
                 </div>
                 <!-- /Reviews -->
-                 <%= render '/polls/form' %>
+                <div class="col-md-3">
+                  <div id="review-form">
+                    <%= form_with(model: [ @product, @product.poll.build ], local: true, class: "review-form") do |form| %>
+                      <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
+                      <%= form.number_field :vote_count, class: "input" %>
+                      <%= form.text_field :user_id, class: "input" %>
+                      <%= form.submit %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- /tab3  -->
