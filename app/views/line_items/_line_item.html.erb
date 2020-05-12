@@ -3,7 +3,7 @@
     <img src="<%=line_item.product.img_1%>" alt="">
   </div>
   <div class="product-body">
-    <h3 class="product-name"><a href="#"><%=line_item.product.pro_name%></a></h3>
+    <h3 class="product-name"><%=line_item.product.pro_name%></h3>
     <h4 class="product-price"><span class="qty"><%= line_item.quantity %>&times;</span><%= number_to_currency(line_item.total_price) %></h4>
   </div>
 </div>

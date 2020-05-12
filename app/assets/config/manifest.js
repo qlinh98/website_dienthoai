@@ -8,11 +8,11 @@
 //= link font-awesome.min.css
 //= link style.css
 
-//= link bootstrap.min.js
 //= link jquery.min.js
+//= link bootstrap.min.js
+//= link slick.min.js
+//= link nouislider.min.js
 //= link jquery.zoom.min.js
 //= link main.js
-//= link nouislider.min.js
-//= link slick.min.js
 
 

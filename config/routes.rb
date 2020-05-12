@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   resources :public
   resources :polls
   resources :product_details
-
+  # get "/products/:page" => "products#show"
   resources :products
 
   # resources :category_pros
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #resources :products

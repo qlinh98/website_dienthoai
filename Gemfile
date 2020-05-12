@@ -36,6 +36,7 @@ gem "js"
 gem "jquery-ui-rails"
 gem "pg_search"
 gem "pagy"
+gem "will_paginate"
 # gem "simple_form"
 
 # Use Active Storage variant

@@ -5,17 +5,24 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
   before_action :navcategory_product, :show_product
 
-  def show_product
-    @products1 = Product.all.sort_by {|desc| desc.created_at }.reverse
-    @categorys1 = CategoryPro.all
-    @all = []
-    @categorys1.each do |category|
-      @products1.each do |product|
-        if product.category_pro_id == category.id
-          @all << product
-        end
-      end
+  def cart
+    if current_user.present?
     end
+  end
+
+  def show_product
+    @products1 = Product.all.sort_by { |desc| desc.created_at }.reverse
+    @categorys1 = CategoryPro.all
+    # @arr_count_product = []
+    # @categorys1.each do |category|
+    #   dem = 1
+    #   @products1.each do |product|
+    #     if (product.category_pro_id == category.id)
+    #       dem += 1
+    #     end
+    #   end
+    #   @arr_count_product << dem
+    # end
     search_product
   end
 
@@ -40,12 +47,12 @@ class ApplicationController < ActionController::Base
 
   def search_product
     if params[:search].present?
-      @products1 = Product.whose_name_starts_with(params[:search])
+      @product = Product.whose_name_starts_with(params[:search])
       # redirect_to '/products/show' + '?search='
       # redirect_to "/products/show?search=#{params[:search]}"
       redirect_to products_path(:search => params[:search])
     else
-      @products1 = Product.all
+      @product = Product.all
     end
     respond_to do |format|
       format.html
