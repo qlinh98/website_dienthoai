@@ -3,8 +3,8 @@
 one:
   pro_name: iphone
   quantity: 1
-  price_input: 5.0
-  price_output: 5.0
+  price_input: 5
+  price_output: 6
   img_1: img.gif
   img_2: img.gif
   img_3: img.gif
@@ -13,8 +13,8 @@ one:
 two:
   pro_name: MyString2
   quantity: 1
-  price_input: 4.0
-  price_output: 3.0
+  price_input: 4
+  price_output: 5
   img_1: MyString.png
   img_2: MyString.png
   img_3: MyString.png
@@ -23,8 +23,8 @@ two:
 phone:
   pro_name: SamSung A50
   quantity: 15
-  price_input: 8.99
-  price_output: 9.99
+  price_input: 8
+  price_output: 9
   img_1: MyString.jpg
   img_2: MyString.jpg
   img_3: MyString.jpg

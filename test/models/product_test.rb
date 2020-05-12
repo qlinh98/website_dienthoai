@@ -13,14 +13,18 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:price_input].any?
   end
   test "Price_output phai lon hon price_input" do
-    product = Product.new(:pro_name => "Hmm...",
-                          :quantity => 45,
-                          :price_input => 5,
-                          :img_1 => "MyString",
-                          :img_2 => "MyString",
-                          :img_3 => "MyString")
+    product = Product.new(pro_name: "Hmm...",
+                          quantity: 45,
+                          price_input: 5,
+                          img_1: "MyString",
+                          img_2: "MyString",
+                          img_3: "MyString")
 
-    product.price_output = 0
+    product.price_output = -1
+    assert product.invalid?
+    assert_equal "must be greater than or equal to #{product.price_input}",
+                 product.errors[:price_output].join("")
+    product.price_output = 4
     assert product.invalid?
     assert_equal "must be greater than or equal to #{product.price_input}",
                  product.errors[:price_output].join("")
