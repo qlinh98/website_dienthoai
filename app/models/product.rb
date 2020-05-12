@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  validates :quantity, :price_input, :price_output, numericality: true
+  validates :quantity, :price_input, :price_output, numericality: true, presence: true
   validates :pro_name, :quantity, :price_input, presence: true
   validates :price_output, numericality: { greater_than_or_equal_to: :price_input }
   validates :pro_name, :uniqueness => true

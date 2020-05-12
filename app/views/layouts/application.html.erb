@@ -3,8 +3,6 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'fonts', media: 'all', 'data-turbolinks-track': 'reload'%>
     <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload'%>
     <%= stylesheet_link_tag 'slick', media: 'all', 'data-turbolinks-track': 'reload'%>
@@ -17,6 +15,9 @@
     <%= javascript_include_tag 'slick.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'nouislider.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery.zoom.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'main', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <%= render "layouts/nav/public"%>
