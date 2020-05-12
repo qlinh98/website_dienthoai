@@ -1,7 +1,13 @@
-<ul class="main-nav nav navbar-nav">
-  <li ><a href="/">Home</a></li>
-  <li><%= link_to "All", products_path %></li>
-  <% @cate.each do |navcategory| %>
-    <li><%= link_to "#{navcategory.category_name}", products_path(category_pro_id: navcategory.id, category_name: navcategory.category_name)%></li>
-  <% end %>
-</ul>
+  <!-- container -->
+<div class="container">
+  <!-- responsive-nav -->
+  <div id="responsive-nav">
+    <ul class="main-nav nav navbar-nav">
+      <li ><a href="/">Home</a></li>
+      <li><%= link_to "All", products_path %></li>
+      <% @cate.each do |navcategory| %>
+        <li><%= link_to "#{navcategory.category_name}", products_path(category_pro_id: navcategory.id, category_name: navcategory.category_name)%></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

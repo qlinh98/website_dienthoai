@@ -13,16 +13,16 @@ class ApplicationController < ActionController::Base
   def show_product
     @products1 = Product.all.sort_by { |desc| desc.created_at }.reverse
     @categorys1 = CategoryPro.all
-    @all = []
-    @categorys1.each do |category|
-      dem = 0
-      @products1.each do |product|
-        if (product.category_pro_id == category.id) && (dem <= 4)
-          @all << product
-          dem += 1
-        end
-      end
-    end
+    # @arr_count_product = []
+    # @categorys1.each do |category|
+    #   dem = 1
+    #   @products1.each do |product|
+    #     if (product.category_pro_id == category.id)
+    #       dem += 1
+    #     end
+    #   end
+    #   @arr_count_product << dem
+    # end
     search_product
   end
 
