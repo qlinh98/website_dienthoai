@@ -39,12 +39,12 @@ class ApplicationController < ActionController::Base
 
   def search_product
     if params[:search].present?
-      @product = Product.whose_name_starts_with(params[:search])
+      product_search = Product.whose_name_starts_with(params[:search])
       # redirect_to '/products/show' + '?search='
       # redirect_to "/products/show?search=#{params[:search]}"
       redirect_to products_path(:search => params[:search])
     else
-      @product = Product.all
+      product_search = Product.all
     end
     respond_to do |format|
       format.html

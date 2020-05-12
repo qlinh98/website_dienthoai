@@ -2,7 +2,6 @@ class ProductsController < InheritedResources::Base
 
   # load_and_authorize_resource
   # before_action :search_product
-
   def index
     if params[:category_pro_id].present?
       @product = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: params[:category_pro_id]).paginate(:page => params[:page], :per_page => 9)
@@ -21,7 +20,7 @@ class ProductsController < InheritedResources::Base
 
     # binding.pry
 
-    @product_relate = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: @products.category_pro_id).limit(3)
+    @product_relate = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: @products.category_pro_id)
     
     @poll = Product.includes(:poll).find(params[:id])
     # binding.pry

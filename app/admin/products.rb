@@ -10,8 +10,12 @@ ActiveAdmin.register Product do
   # Ex:- scope :active, -> {where(:active => true)}
   # Ex:- scope :active, -> {where(:active => true)}
 
-  permit_params :pro_name, :quantity, :price_input, :price_output, :img_1, :img_2, :img_3, :category_pro_id
+  permit_params :pro_name, :quantity, :price_input, :price_input, :img_1, :img_2, :img_3, :category_pro_id
   #
+
+  
+
+  
   # or
   #
   # permit_params do
