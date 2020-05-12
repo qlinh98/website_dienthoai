@@ -95,13 +95,21 @@ ol {
   list-style: none;
 }
 
+.my-notify-info{
+
+  font-style:normal;
+  font-weight:400;
+  color: #d10024;
+
+
+}
 /*----------------------------*\
 	Buttons
 \*----------------------------*/
 
 .primary-btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 20px;
   background-color: #d10024;
   border: none;
   border-radius: 40px;
@@ -114,6 +122,23 @@ ol {
   float: right;
   margin-bottom: 10px;
 }
+.primary-btn1 {
+ 
+  padding: 12px 12px;
+  background-color: #18c03cda;
+  border: none;
+  border-radius: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  float: right;
+  margin-bottom: 0px;
+}
+
+
 
 .primary-btn:hover,
 .primary-btn:focus {
