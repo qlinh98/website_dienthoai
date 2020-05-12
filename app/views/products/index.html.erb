@@ -114,6 +114,7 @@
                   <div class="products-slick" data-nav="#slick-nav-1">
                     <!-- product -->
                     <% @product.each do |product| %>
+                     <%= link_to product do %>
                       <div class="product">
                         <div class="product-img">
                           <img width ="450" height ="450" src = "<%=product.img_1%>">
@@ -134,6 +135,7 @@
                               <i class="fa fa-star"></i>
                             </div>
                           </div>
+                          <%end%>
                           <div class="add-to-cart" >
                             <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
                           </div>

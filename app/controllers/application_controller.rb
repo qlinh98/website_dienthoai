@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include CurrentCart
   before_action :set_cart
-  before_action :navcategory_product, :show_product, :poll_product
+  before_action :navcategory_product, :show_product
 
   def cart
     if current_user.present?
@@ -13,24 +13,9 @@ class ApplicationController < ActionController::Base
   def show_product
     @products1 = Product.all.sort_by { |desc| desc.created_at }.reverse
     @categorys1 = CategoryPro.all
-    @poll_pro = Product.joins(:poll).all
-    @all = []
-    @categorys1.each do |category|
-      dem = 0
-      @products1.each do |product|
-        if (product.category_pro_id == category.id) && (dem <= 4)
-          @all << product
-          dem += 1
-        end
-      end
-    end
-    search_product
-  end
 
-  def poll_product
-    if @current_user.present?
-      @user = @current_user.id
-    end
+    #@poll_pro = Product.joins(:poll).find(@products1.id)
+    search_product
   end
 
   # def search_product
