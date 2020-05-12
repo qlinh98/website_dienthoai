@@ -7,7 +7,7 @@
       <div class="col-md-12">
         <ul class="breadcrumb-tree">
           <li><a href="/">Home</a></li>
-          <li class="active">Tablets</li>
+          <li class="active"><%= @category_nav%></li>
         </ul>
       </div>
     </div>
@@ -113,7 +113,7 @@
                 <div id="tab1" class="tab-pane active">
                   <div class="products-slick" data-nav="#slick-nav-1">
                     <!-- product -->
-                    <% @products1.each do |product| %>  
+                    <% @product.each do |product| %>
                       <div class="product">
                         <div class="product-img">
                           <img width ="450" height ="450" src = "<%=product.img_1%>">
@@ -133,14 +133,9 @@
                               <i class="fa fa-star"></i>
                               <i class="fa fa-star"></i>
                             </div>
-                            <div class="product-btns">
-                              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                            </div>
                           </div>
-                          <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                          <div class="add-to-cart" >
+                            <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
                           </div>
                         </div>
                       <%end%>
@@ -151,6 +146,7 @@
                   <!-- /tab -->
                 </div>
               </div>
+              <p><%= will_paginate @product, class: "text-center" %></p>
             </div>
             <!-- Products tab & slick -->
           </div>
