@@ -36,6 +36,8 @@ class OrdersController < InheritedResources::Base
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil 
 
+binding.pry
+
         #ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
         OrderMailer.received(@order).deliver_now
         # flash[:success] = "Order Sucessfuly Completed.."

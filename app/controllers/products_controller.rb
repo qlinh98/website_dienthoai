@@ -1,21 +1,16 @@
 class ProductsController < InheritedResources::Base
+
   # load_and_authorize_resource
   # before_action :search_product
 
   def index
     if params[:category_pro_id].present?
       @product = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: params[:category_pro_id]).paginate(:page => params[:page], :per_page => 9)
-
-      # @arr_name = CategoryPro.includes(:product).where(id: params[:category_pro_id]).map do |pro| { name: pro.category_name } end
-
-      # @category_name = CategoryPro.includes(:product).where(id: params[:category_pro_id]).map do |pro| { name: pro.category_name } end.map { |x| print x[:name] }
-
       @category_nav = params[:category_name]
     else
       @category_nav = "All"
       @product = Product.all.paginate(:page => params[:page], :per_page => 9)
     end
-    # @orders = Order.paginate(:page => params[:page], :per_page => 10).order("created_at desc")
     search_product
   end
 
@@ -23,7 +18,13 @@ class ProductsController < InheritedResources::Base
     # @products = Product.all
     # search_product
     @products = Product.includes(:product_detail).find(params[:id])
+
+    # binding.pry
+
+    @product_relate = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: @products.category_pro_id).limit(3)
+    
     @poll = Product.includes(:poll).find(params[:id])
+    # binding.pry
     sum_vote
   end
 
@@ -56,7 +57,6 @@ class ProductsController < InheritedResources::Base
   #   @products1 = Product.all
   #   search_product
   # end
-
   # binding.pry
   def search_product
     @search = params["search"]

@@ -13,16 +13,8 @@ class ApplicationController < ActionController::Base
   def show_product
     @products1 = Product.all.sort_by { |desc| desc.created_at }.reverse
     @categorys1 = CategoryPro.all
-    # @arr_count_product = []
-    # @categorys1.each do |category|
-    #   dem = 1
-    #   @products1.each do |product|
-    #     if (product.category_pro_id == category.id)
-    #       dem += 1
-    #     end
-    #   end
-    #   @arr_count_product << dem
-    # end
+
+    #@poll_pro = Product.joins(:poll).find(@products1.id)
     search_product
   end
 
@@ -33,9 +25,9 @@ class ApplicationController < ActionController::Base
   #     @products1 = Product.where("pro_name like ?", "%#{name}%")
   #   end
   # end
-  def show_product_detail
-    @product_detail = ProductDetail.where(:product_id => params[:id])
-  end
+  # def show_product_detail
+  #   # @product_detail = ProductDetail.where(:product_id => params[:id])
+  # end
 
   def navcategory_product
     @cate = []

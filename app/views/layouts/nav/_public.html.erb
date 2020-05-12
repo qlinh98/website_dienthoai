@@ -2,12 +2,11 @@
   <div id="top-header">
     <div class="container">
       <ul class="header-links pull-left">
-        <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-        <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-        <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+        <li><a><i class="fa fa-phone"></i> (+84.28)37155742</a></li>
+        <li><a><i class="fa fa-envelope-o"></i> nguyenngoclam3298@gmail.com</a></li>
+        <li><a><i class="fa fa-map-marker"></i> Office: Floor 3, QTSC Building 1, QTSC, District 12, Ho Chi Minh city, Vietnam</a></li>
       </ul>
       <ul class="header-links pull-right">
-        <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
         <% if user_signed_in? %>
           <li><i class="fa fa-user-o"></i><span style="color: red; font-size:18px">Welcome <%= current_user.email %> !</span></li>
           <li><i class="fa fa-user-i"></i><%= link_to "Sign out ", destroy_user_session_path, :method => :delete %><i class="fa fa-arrow-circle-right"></i></li>

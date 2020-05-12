@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get "/carts/:id", to: "carts#show", as: "cart"
   resources :carts
   resources :public
-  resources :polls
+  
   resources :product_details
-  # get "/products/:page" => "products#show"
-  resources :products
+
+  resources :products do 
+    resources :polls
+  end
 
   # resources :category_pros
 

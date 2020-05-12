@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <ul class="breadcrumb-tree">
           <li><a href="/">Home</a></li>
-          <li><a href="#"><%=@products.category_pro.category_name%></a></li>
+          <li><%=link_to @products.category_pro.category_name, products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name)%></li>
           <li class="active"><%=@products.pro_name%></li>
         </ul>
       </div>
@@ -62,24 +62,24 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>THÔNG TIN KỸ THUẬT</th>
+                  <th>TECHNICAL INFORMATION</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Màn hình:</td>
+                  <td>Screen:</td>
                   <td><%=@products.product_detail&.screen%></td>
                 </tr>
                 <tr>
-                  <td>Hệ điều hành:</td>
+                  <td>Operating system:</td>
                   <td><%=@products.product_detail&.operating_system%></td>
                 </tr>
                 <tr>
-                  <td>Camera sau:</td>
+                  <td>Rear camera:</td>
                   <td><%=@products.product_detail&.rear_camera%></td>
                 </tr>
                 <tr>
-                  <td>Camera trước:</td>
+                  <td>Front camera:</td>
                   <td><%=@products.product_detail&.front_camera%></td>
                 </tr>
                 <tr>
@@ -94,14 +94,6 @@
             </table>
           </div>
           <div class="add-to-cart">
-            <div class="qty-label">
-              Qty
-              <div class="input-number">
-                <input type="number">
-                <span class="qty-up">+</span>
-                <span class="qty-down">-</span>
-              </div>
-            </div>
             <%= button_to 'Add to Cart', line_items_path(:product_id => params[:id]), class: "add-to-cart-btn fa fa-shopping-cart" %>
           </div>
         </div>
@@ -112,7 +104,6 @@
         <div id="product-tab">
           <!-- product tab nav -->
           <ul class="tab-nav">
-            <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
             <li><a data-toggle="tab" href="#tab2">Details</a></li>
             <li><a data-toggle="tab" href="#tab3">Reviews (<%= @dem%>)</a></li>
           </ul>
@@ -120,13 +111,6 @@
           <!-- product tab content -->
           <div class="tab-content">
             <!-- tab1  -->
-            <div id="tab1" class="tab-pane fade in active">
-              <div class="row">
-                <div class="col-md-12">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-              </div>
-            </div>
             <!-- /tab1  -->
             <!-- tab2  -->
             <div id="tab2" class="tab-pane fade in">
@@ -136,28 +120,28 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>THÔNG TIN KỸ THUẬT</th>
+                          <th>TECHNICAL INFORMATION</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Màn hình:</td>
+                          <td>Screen:</td>
                           <td><%=@products.product_detail&.screen%></td>
                         </tr>
                         <tr>
-                          <td>Hệ điều hành:</td>
+                          <td>Operating system:</td>
                           <td><%=@products.product_detail&.operating_system%></td>
                         </tr>
                         <tr>
-                          <td>Camera sau:</td>
+                          <td>Rear camera:</td>
                           <td><%=@products.product_detail&.rear_camera%></td>
                         </tr>
                         <tr>
-                          <td>Camera trước:</td>
+                          <td>Front camera:</td>
                           <td><%=@products.product_detail&.front_camera%></td>
                         </tr>
                         <tr>
-                          <td>Kết nối:</td>
+                          <td>Connect:</td>
                           <td><%=@products.product_detail&.cpu%></td>
                         </tr>
                         <tr>
@@ -169,11 +153,11 @@
                           <td><%=@products.product_detail&.ram%></td>
                         </tr>
                         <tr>
-                          <td>Bộ nhớ trong:</td>
+                          <td>Internal memory:</td>
                           <td><%=@products.product_detail&.internal_memory%></td>
                         </tr>
                         <tr>
-                          <td>Bộ nhớ ngoài:</td>
+                          <td>External memory:</td>
                           <td><%=@products.product_detail&.memory_stick%></td>
                         </tr>
                         <tr>
@@ -181,31 +165,31 @@
                           <td><%=@products.product_detail&.sim%></td>
                         </tr>
                         <tr>
-                          <td>Dung lượng pin:</td>
+                          <td>Battery capacity:</td>
                           <td><%=@products.product_detail&.battery_capacity%></td>
                         </tr>
                         <tr>
-                          <td>Ổ cứng:</td>
+                          <td>Hard Drive:</td>
                           <td><%=@products.product_detail&.hard_drive%></td>
                         </tr>
                         <tr>
-                          <td>Card màn hình:</td>
+                          <td>Graphic card:</td>
                           <td><%=@products.product_detail&.graphic_card%></td>
                         </tr>
                         <tr>
-                          <td>Cổng kết nối:</td>
+                          <td>Connector:</td>
                           <td><%=@products.product_detail&.connector%></td>
                         </tr>
                         <tr>
-                          <td>Thiết kế:</td>
+                          <td>Design:</td>
                           <td><%=@products.product_detail&.design%></td>
                         </tr>
                         <tr>
-                          <td>Kích thước:</td>
+                          <td>Size:</td>
                           <td><%=@products.product_detail&.size%></td>
                         </tr>
                         <tr>
-                          <td>Ra mắt</td>
+                          <td>Launches:</td>
                           <td><%=@products.product_detail&.release_time%></td>
                         </tr>
                       </tbody>
@@ -223,7 +207,7 @@
                   <div id="rating">
                     <div class="rating-avg">
                       <% if @dem != 0%>
-                        <span><%= (@n.to_f/@dem)%> / 5</span>
+                        <span><%= (@n.to_f/@dem).round(1)%> / 5</span>
                       <%else%>
                         <span>0 / 5</span>
                       <%end%>
@@ -314,7 +298,7 @@
                       <% @poll.poll.each do |poll|%>
                         <li>
                           <div class="review-heading">
-                            <h5 class="name"><%= poll.user_id%></h5>
+                            <h6 class="name"><%= poll.user.email.chomp("@gmail.com")%></h6>
                             <p class="date"><%= poll.created_at%></p>
                             <div class="review-rating">
                               <% [1,2,3,4,5].each do | x | %>
@@ -335,7 +319,27 @@
                   </div>
                 </div>
                 <!-- /Reviews -->
-                 <%= render '/polls/form' %>
+                <div class="col-md-3">
+                  <div id="review-form">
+                    <%= form_with(model: [ @products, @products.poll.build ], remote: true, class: "review-form") do |form| %>
+                      <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
+                      <div class="input-rating">
+                        <span>Your Rating: </span>
+                        <div class="stars">
+                          <%= form.radio_button :vote_count, 5, id: 'star5'%><label for="star5"></label>
+                          <%= form.radio_button :vote_count, 4, id: 'star4'%><label for="star4"></label>
+                          <%= form.radio_button :vote_count, 3, id: 'star3'%><label for="star3"></label>
+                          <%= form.radio_button :vote_count, 2, id: 'star2'%><label for="star2"></label>
+                          <%= form.radio_button :vote_count, 1, id: 'star1'%><label for="star1"></label>
+                        </div>
+                      </div>
+                      <%if current_user.present?%>
+                        <%= form.hidden_field :user_id, class: "input", value: current_user.id %>
+                      <%end%>
+                      <%= form.submit "Review", class: "primary-btn" %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- /tab3  -->
@@ -358,125 +362,41 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-title text-center">
-          <h3 class="title">Related Products</h3>
+          <h3><%=link_to "Related Products", products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name), class: "title"%></h3>
         </div>
       </div>
       <!-- product -->
-      <div class="col-md-3 col-xs-6">
+      <% @product_relate.each do |product_re| %>
+       <%= link_to product_re do %>
         <div class="product">
           <div class="product-img">
-            <img src="./img/product01.png" alt="">
+            <img width ="450" height ="450" src = "<%=product_re.img_1%>">
             <div class="product-label">
               <span class="sale">-30%</span>
-            </div>
-          </div>
-          <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-            </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
-          </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
-      </div>
-      <!-- /product -->
-      <!-- product -->
-      <div class="col-md-3 col-xs-6">
-        <div class="product">
-          <div class="product-img">
-            <img src="./img/product02.png" alt="">
-            <div class="product-label">
               <span class="new">NEW</span>
             </div>
           </div>
           <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+            <p class="product-category"><%=product_re.category_pro.category_name%></p>
+            <h3 class="product-name"><%= link_to product_re.pro_name, product_re %>
+              <h4 class="product-price"><%= product_re.price_output %> $<del class="product-old-price">$990.00</del></h4>
+              <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
             </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+            <%end%>
+            <div class="add-to-cart" >
+              <%= button_to 'Add to Cart', line_items_path(product_id: product_re), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
             </div>
           </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
+        <%end%>
       </div>
-      <!-- /product -->
-      <div class="clearfix visible-sm visible-xs"></div>
-      <!-- product -->
-      <div class="col-md-3 col-xs-6">
-        <div class="product">
-          <div class="product-img">
-            <img src="./img/product03.png" alt="">
-          </div>
-          <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-            </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
-          </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
-      </div>
-      <!-- /product -->
-      <!-- product -->
-      <div class="col-md-3 col-xs-6">
-        <div class="product">
-          <div class="product-img">
-            <img src="./img/product04.png" alt="">
-          </div>
-          <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-            </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
-          </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
-      </div>
-      <!-- /product -->
+      <!-- /row -->
     </div>
-    <!-- /row -->
+    <!-- /container -->
   </div>
-  <!-- /container -->
-</div>
-<!-- /Section -->
+  <!-- /Section -->
