@@ -31,8 +31,8 @@
           </div>
           <%= form_with(model: order, local: true) do |form| %>
             <% if order.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+              <div class="my-notify-info" >
+                <h2><%= pluralize(order.errors.count, "Error")%></h2>
                 <ul>
                   <% order.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
@@ -41,28 +41,28 @@
               </div>
             <% end %>
             <div class="form-group">
-              <%=  form.label :name %><br>
-              <%= form.text_field :name, size: 40, class: "input"%>
+              <%=  form.label :name%><br>
+              <%= form.text_field :name, :required => true, size: 40, class: "input"%>
             </div>
             <div class="form-group">
               <%= form.label :email %><br>
-              <%= form.text_field :email, size: 40, class: "input" %>
+              <%= form.text_field :email, :required => true, size: 40, class: "input" %>
             </div>
             <div class="form-group">
               <%= form.label :address %><br>
-              <%= form.text_area :address, rows: 2, cols: 40, class: "input" %>
+              <%= form.text_area :address, :required => true, rows: 2, cols: 40, class: "input" %>
             </div>
             <div class="form-group">
               <%= form.label :total %><br>
               <div class="order-total"><strong class="order-total"><%= number_to_currency(@cart.total_price) %></strong></div>
-              <%# <%= form.text_field :total, required: true, class: 'order-total', value: number_to_currency(@cart.total_price) %>
+              <%# <%form.text_field :total, required: true, class: 'order-total', value: number_to_currency(@cart.total_price) %>
             </div>
-            <div class="form-group">
+            <div class="form-group">  
               <%= form.label :pay_type %><br>
               <%= form.select :pay_type, Order.pay_types.keys,
                             prompt: 'Select a payment method'  %>
             </div>
-            <div class="primary-btn order-submit">
+            <div input type= "button">
               <%= form.submit "Place Order", class:"primary-btn" %>
             </div>
           </div>
@@ -97,8 +97,8 @@
               <div><strong>TOTAL</strong></div>
               <div><strong class="order-total"><%= number_to_currency(@cart.total_price) %></strong></div>
             </div>
-            <div class="primary-btn order-submit">
-              <%= link_to 'View Cart',class:"primary-btn" , controller: "carts", action: "show", id: @cart.id%>
+            <div  input class="primary-btn1">
+              <%= link_to 'View Cart',class:"primary-btn1" , controller: "carts", action: "show", id: @cart.id%>
             </div>
           </tr>
         </div>

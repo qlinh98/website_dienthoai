@@ -37,7 +37,7 @@ class OrdersController < InheritedResources::Base
         session[:cart_id] = nil 
 
         #ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
-        OrderMailer.received(@order).deliver
+        OrderMailer.received(@order).deliver_now
         # flash[:success] = "Order Sucessfuly Completed.."
         # redirect_to :root
         format.html { redirect_to :root , notice: "Order Sucessfuly Completed.." } # I18n.t('.thanks')
