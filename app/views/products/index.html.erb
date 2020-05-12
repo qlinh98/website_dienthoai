@@ -28,143 +28,91 @@
         <div class="aside">
           <h3 class="aside-title">Categories</h3>
           <div class="checkbox-filter">
-            <% @categorys1.each do |category_product| %>
-              <div class="input-checkbox">
-                <input type="checkbox" id="<%=category_product.id%>">
-                <label for="<%=category_product.id%>">
-                  <span></span>
-                  <%=category_product.category_name%>
-                  <small>(120)</small>
-                </label>
-              </div>
-            <%end%>
-          </div>
+            <% @categorys1.each do |category_product| dem = 0 %>
+            <div class="input-checkbox">
+              <label for="<%=category_product.id%>">
+                <span>* </span>
+                <%=category_product.category_name%>
+                <%@products1.each do |product|%>
+                  <%if (product.category_pro_id == category_product.id)%>
+                    <%dem +=1%>
+                  <%end%>
+                <%end%>
+                <small>(<%=dem%>)</small>
+              </label>
+            </div>
+          <%end%>
         </div>
-        <!-- /aside Widget -->
-        <!-- aside Widget -->
-        <div class="aside">
-          <h3 class="aside-title">Price</h3>
-          <div class="price-filter">
-            <div id="price-slider"></div>
-            <div class="input-number price-min">
-              <input id="price-min" type="number">
-              <span class="qty-up">+</span>
-              <span class="qty-down">-</span>
-            </div>
-            <span>-</span>
-            <div class="input-number price-max">
-              <input id="price-max" type="number">
-              <span class="qty-up">+</span>
-              <span class="qty-down">-</span>
-            </div>
-          </div>
-        </div>
-        <!-- /aside Widget -->
-        <!-- aside Widget -->
-        <!-- /aside Widget -->
-        <!-- aside Widget -->
-        <div class="aside">
-          <h3 class="aside-title">Top selling</h3>
-          <div class="product-widget">
-            <div class="product-img">
-              <%= image_tag("product01.png", :alt => "rss feed") %>
-            </div>
-            <div class="product-body">
-              <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">product name goes here</a></h3>
-              <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            </div>
-          </div>
-          <div class="product-widget">
-            <div class="product-img">
-              <%= image_tag("product02.png", :alt => "rss feed") %>
-            </div>
-            <div class="product-body">
-              <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">product name goes here</a></h3>
-              <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            </div>
-          </div>
-          <div class="product-widget">
-            <div class="product-img">
-              <%= image_tag("product03.png", :alt => "rss feed") %>
-            </div>
-            <div class="product-body">
-              <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">product name goes here</a></h3>
-              <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            </div>
-          </div>
-        </div>
-        <!-- /aside Widget -->
       </div>
-      <!-- /ASIDE -->
-      <!-- STORE -->
-      <div id="store" class="col-md-9">
-        <!-- store top filter -->
-        <!-- /store top filter -->
-        <!-- store products -->
-        <div class="row">
-          <!-- Products tab & slick -->
-          <div class="col-md-12">
-            <div class="row">
-              <div class="products-tabs">
-                <!-- tab -->
-                <div id="tab1" class="tab-pane active">
-                  <div class="products-slick" data-nav="#slick-nav-1">
-                    <!-- product -->
-                    <% @product.each do |product| %>
-                     <%= link_to product do %>
-                      <div class="product">
-                        <div class="product-img">
-                          <img width ="450" height ="450" src = "<%=product.img_1%>">
-                          <div class="product-label">
-                            <span class="sale">-30%</span>
-                            <span class="new">NEW</span>
-                          </div>
-                        </div>
-                        <div class="product-body">
-                          <p class="product-category"><%=product.category_pro.category_name%></p>
-                          <h3 class="product-name"><%= link_to product.pro_name, product %>
-                            <h4 class="product-price"><%= product.price_output %> $<del class="product-old-price">$990.00</del></h4>
-                            <div class="product-rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                            </div>
-                          </div>
-                          <%end%>
-                          <div class="add-to-cart" >
-                            <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
-                          </div>
-                        </div>
-                      <%end%>
-                      <!-- /product -->
-                    </div>
-                    <div id="slick-nav-1" class="products-slick-nav"></div>
-                  </div>
-                  <!-- /tab -->
-                </div>
-              </div>
-              <p><%= will_paginate @product, class: "text-center" %></p>
-            </div>
-            <!-- Products tab & slick -->
-          </div>
-          <!-- /store products -->
-          <!-- store bottom filter -->
-          <div class="store-filter clearfix">
-            <ul class="store-pagination">
-              <%# <%= render partial: 'pagy/nav', locals: {pagy: @pagy} %>
-            </ul>
-          </div>
-          <!-- /store bottom filter -->
-        </div>
-        <!-- /STORE -->
-      </div>
-      <!-- /row -->
+      <!-- /aside Widget -->
+      <!-- aside Widget -->
+      <!-- /aside Widget -->
     </div>
-    <!-- /container -->
+    <!-- /ASIDE -->
+    <!-- STORE -->
+    <div id="store" class="col-md-9">
+      <!-- store top filter -->
+      <!-- /store top filter -->
+      <!-- store products -->
+      <div class="row">
+        <!-- Products tab & slick -->
+        <div class="col-md-12">
+          <div class="row">
+            <div class="products-tabs">
+              <!-- tab -->
+              <div id="tab1" class="tab-pane active">
+                <div class="products" >
+                  <!-- product -->
+                  <% @product.each do |product| %>
+                  <%= link_to product do %>
+                    <div class="product">
+                      <div class="product-img">
+                        <img src = "<%=product.img_1%>">
+                        <div class="product-label">
+                          <span class="new">NEW</span>
+                        </div>
+                      </div>
+                      <div class="product-body">
+                        <p class="product-category"><%=product.category_pro.category_name%></p>
+                        <h3 class="product-name"><%= link_to product.pro_name, product %>
+                          <h4 class="product-price"><%= number_to_currency(product.price_output)%></h4>
+                          <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                        </div>
+                        <%end%>
+                        <div class="add-to-cart" >
+                          <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
+                        </div>
+                      </div>
+                    <%end%>
+                    <!-- /product -->
+                  </div>
+                </div>
+                <!-- /tab -->
+              </div>
+            </div>
+            <p><%= will_paginate @product, class: "text-center"%></p>
+          </div>
+          <!-- Products tab & slick -->
+        </div>
+        <!-- /store products -->
+        <!-- store bottom filter -->
+        <div class="store-filter clearfix">
+          <ul class="store-pagination">
+            <%# <%= render partial: 'pagy/nav', locals: {pagy: @pagy} %>
+          </ul>
+        </div>
+        <!-- /store bottom filter -->
+      </div>
+      <!-- /STORE -->
+    </div>
+    <!-- /row -->
   </div>
-  <!-- /SECTION -->
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
