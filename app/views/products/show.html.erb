@@ -6,8 +6,8 @@
       <div class="col-md-12">
         <ul class="breadcrumb-tree">
           <li><a href="/">Home</a></li>
-          <li><a href="#"><%=@product.category_pro.category_name%></a></li>
-          <li class="active"><%=@product.pro_name%></li>
+          <li><%=link_to @products.category_pro.category_name, products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name)%></li>
+          <li class="active"><%=@products.pro_name%></li>
         </ul>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="col-md-5 col-md-push-2">
         <div id="product-main-img">
           <div class="product-preview">
-            <img width ="450" height ="450" src = "<%=@product.img_1%>">
+            <img width ="450" height ="450" src = "<%=@products.img_1%>">
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <!-- Product details -->
       <div class="col-md-5">
         <div class="product-details">
-          <h2 class="product-name"><%=@product.pro_name%></h2>
+          <h2 class="product-name"><%=@products.pro_name%></h2>
           <div>
             <div class="product-rating">
               <% [1,2,3,4,5].each do | x | %>
@@ -52,43 +52,43 @@
             <a data-toggle="tab"><%= @dem%> Review(s)</a>
           </div>
           <div>
-            <h3 class="product-price"><%=@product.price_output%> $ <del class="product-old-price">$990.00</del></h3>
+            <h3 class="product-price"><%=@products.price_output%> $ <del class="product-old-price">$990.00</del></h3>
             <ul class="product-links">
               <li>Category:</li>
-              <li><a href="#"><%=@product.category_pro.category_name%></a></li>
+              <li><a href="#"><%=@products.category_pro.category_name%></a></li>
             </ul>
           </div>
           <div class="product-options">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>THÔNG TIN KỸ THUẬT</th>
+                  <th>TECHNICAL INFORMATION</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Màn hình:</td>
-                  <td><%=@product.product_detail&.screen%></td>
+                  <td>Screen:</td>
+                  <td><%=@products.product_detail&.screen%></td>
                 </tr>
                 <tr>
-                  <td>Hệ điều hành:</td>
-                  <td><%=@product.product_detail&.operating_system%></td>
+                  <td>Operating system:</td>
+                  <td><%=@products.product_detail&.operating_system%></td>
                 </tr>
                 <tr>
-                  <td>Camera sau:</td>
-                  <td><%=@product.product_detail&.rear_camera%></td>
+                  <td>Rear camera:</td>
+                  <td><%=@products.product_detail&.rear_camera%></td>
                 </tr>
                 <tr>
-                  <td>Camera trước:</td>
-                  <td><%=@product.product_detail&.front_camera%></td>
+                  <td>Front camera:</td>
+                  <td><%=@products.product_detail&.front_camera%></td>
                 </tr>
                 <tr>
                   <td>CPU:</td>
-                  <td><%=@product.product_detail&.cpu%></td>
+                  <td><%=@products.product_detail&.cpu%></td>
                 </tr>
                 <tr>
                   <td>Ram:</td>
-                  <td><%=@product.product_detail&.ram%></td>
+                  <td><%=@products.product_detail&.ram%></td>
                 </tr>
               </tbody>
             </table>
@@ -120,77 +120,77 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>THÔNG TIN KỸ THUẬT</th>
+                          <th>TECHNICAL INFORMATION</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Màn hình:</td>
-                          <td><%=@product.product_detail&.screen%></td>
+                          <td>Screen:</td>
+                          <td><%=@products.product_detail&.screen%></td>
                         </tr>
                         <tr>
-                          <td>Hệ điều hành:</td>
-                          <td><%=@product.product_detail&.operating_system%></td>
+                          <td>Operating system:</td>
+                          <td><%=@products.product_detail&.operating_system%></td>
                         </tr>
                         <tr>
-                          <td>Camera sau:</td>
-                          <td><%=@product.product_detail&.rear_camera%></td>
+                          <td>Rear camera:</td>
+                          <td><%=@products.product_detail&.rear_camera%></td>
                         </tr>
                         <tr>
-                          <td>Camera trước:</td>
-                          <td><%=@product.product_detail&.front_camera%></td>
+                          <td>Front camera:</td>
+                          <td><%=@products.product_detail&.front_camera%></td>
                         </tr>
                         <tr>
-                          <td>Kết nối:</td>
-                          <td><%=@product.product_detail&.cpu%></td>
+                          <td>Connect:</td>
+                          <td><%=@products.product_detail&.cpu%></td>
                         </tr>
                         <tr>
                           <td>CPU:</td>
-                          <td><%=@product.product_detail&.cpu%></td>
+                          <td><%=@products.product_detail&.cpu%></td>
                         </tr>
                         <tr>
                           <td>Ram:</td>
-                          <td><%=@product.product_detail&.ram%></td>
+                          <td><%=@products.product_detail&.ram%></td>
                         </tr>
                         <tr>
-                          <td>Bộ nhớ trong:</td>
-                          <td><%=@product.product_detail&.internal_memory%></td>
+                          <td>Internal memory:</td>
+                          <td><%=@products.product_detail&.internal_memory%></td>
                         </tr>
                         <tr>
-                          <td>Bộ nhớ ngoài:</td>
-                          <td><%=@product.product_detail&.memory_stick%></td>
+                          <td>External memory:</td>
+                          <td><%=@products.product_detail&.memory_stick%></td>
                         </tr>
                         <tr>
                           <td>Sim:</td>
-                          <td><%=@product.product_detail&.sim%></td>
+                          <td><%=@products.product_detail&.sim%></td>
                         </tr>
                         <tr>
-                          <td>Dung lượng pin:</td>
-                          <td><%=@product.product_detail&.battery_capacity%></td>
+                          <td>Battery capacity:</td>
+                          <td><%=@products.product_detail&.battery_capacity%></td>
                         </tr>
                         <tr>
-                          <td>Ổ cứng:</td>
-                          <td><%=@product.product_detail&.hard_drive%></td>
+                          <td>Hard Drive:</td>
+                          <td><%=@products.product_detail&.hard_drive%></td>
                         </tr>
                         <tr>
-                          <td>Card màn hình:</td>
-                          <td><%=@product.product_detail&.graphic_card%></td>
+                          <td>Graphic card:</td>
+                          <td><%=@products.product_detail&.graphic_card%></td>
                         </tr>
                         <tr>
-                          <td>Cổng kết nối:</td>
-                          <td><%=@product.product_detail&.connector%></td>
+                          <td>Connector:</td>
+                          <td><%=@products.product_detail&.connector%></td>
                         </tr>
                         <tr>
-                          <td>Thiết kế:</td>
-                          <td><%=@product.product_detail&.design%></td>
+                          <td>Design:</td>
+                          <td><%=@products.product_detail&.design%></td>
                         </tr>
                         <tr>
-                          <td>Kích thước:</td>
-                          <td><%=@product.product_detail&.size%></td>
+                          <td>Size:</td>
+                          <td><%=@products.product_detail&.size%></td>
                         </tr>
                         <tr>
-                          <td>Ra mắt</td>
-                          <td><%=@product.product_detail&.release_time%></td>
+                          <td>Launches:</td>
+                          <td><%=@products.product_detail&.release_time%></td>
                         </tr>
                       </tbody>
                     </table>
@@ -321,7 +321,7 @@
                 <!-- /Reviews -->
                 <div class="col-md-3">
                   <div id="review-form">
-                    <%= form_with(model: [ @product, @product.poll.build ], remote: true, class: "review-form") do |form| %>
+                    <%= form_with(model: [ @products, @products.poll.build ], remote: true, class: "review-form") do |form| %>
                       <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
                       <div class="input-rating">
                         <span>Your Rating: </span>
@@ -362,125 +362,39 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-title text-center">
-          <h3 class="title">Related Products</h3>
+          <h3><%=link_to "Related Products", products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name), class: "title"%></h3>
         </div>
       </div>
       <!-- product -->
-      <div class="col-md-3 col-xs-6">
+      <% @product_relate.each do |product_re| %>
         <div class="product">
           <div class="product-img">
-            <img src="./img/product01.png" alt="">
+            <img width ="450" height ="450" src = "<%=product_re.img_1%>">
             <div class="product-label">
               <span class="sale">-30%</span>
-            </div>
-          </div>
-          <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-            </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
-          </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
-      </div>
-      <!-- /product -->
-      <!-- product -->
-      <div class="col-md-3 col-xs-6">
-        <div class="product">
-          <div class="product-img">
-            <img src="./img/product02.png" alt="">
-            <div class="product-label">
               <span class="new">NEW</span>
             </div>
           </div>
           <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+            <p class="product-category"><%=product_re.category_pro.category_name%></p>
+            <h3 class="product-name"><%= link_to product_re.pro_name, product_re %>
+              <h4 class="product-price"><%= product_re.price_output %> $<del class="product-old-price">$990.00</del></h4>
+              <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
             </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+            <div class="add-to-cart" >
+              <%= button_to 'Add to Cart', line_items_path(product_id: product_re), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
             </div>
           </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
+        <%end%>
       </div>
-      <!-- /product -->
-      <div class="clearfix visible-sm visible-xs"></div>
-      <!-- product -->
-      <div class="col-md-3 col-xs-6">
-        <div class="product">
-          <div class="product-img">
-            <img src="./img/product03.png" alt="">
-          </div>
-          <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-            </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
-          </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
-      </div>
-      <!-- /product -->
-      <!-- product -->
-      <div class="col-md-3 col-xs-6">
-        <div class="product">
-          <div class="product-img">
-            <img src="./img/product04.png" alt="">
-          </div>
-          <div class="product-body">
-            <p class="product-category">Category</p>
-            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-            <div class="product-rating">
-            </div>
-            <div class="product-btns">
-              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
-          </div>
-          <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-          </div>
-        </div>
-      </div>
-      <!-- /product -->
+      <!-- /row -->
     </div>
-    <!-- /row -->
+    <!-- /container -->
   </div>
-  <!-- /container -->
-</div>
-<!-- /Section -->
+  <!-- /Section -->

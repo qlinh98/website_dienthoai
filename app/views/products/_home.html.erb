@@ -7,7 +7,7 @@
       <div class="row">
         <!-- section title -->
         <div class="section-title">
-          <h3 class="title"><a href="/products/smartphone"><%=category_product.category_name%> NEWS</a></h3>
+          <h3 class="title"><%=link_to category_product.category_name + " New", products_path(category_pro_id: category_product.id, category_name: category_product.category_name)%></h3>
         </div>
       </div>
       <!-- /section title -->
@@ -21,26 +21,28 @@
                 <!-- product -->
                 <% @products1.each do |product_category| %>
                   <% if product_category.category_pro_id ==  category_product.id%>
-                    <div class="product">
-                      <div class="product-img">
-                        <img src = "<%=product_category.img_1%>">
-                        <div class="product-label">
-                          <span class="sale">-30%</span>
-                          <span class="new">NEW</span>
+                    <%= link_to product_category do %>
+                      <div class="product">
+                        <div class="product-img">
+                          <img src = "<%=product_category.img_1%>">
+                          <div class="product-label">
+                            <span class="sale">-30%</span>
+                            <span class="new">NEW</span>
+                          </div>
                         </div>
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category"><%=product_category.category_pro.category_name%></p>
-                        <h3 class="product-name"><%= link_to product_category.pro_name, product_category %></h3>
-                        <h4 class="product-price"><%= product_category.price_output %> $<del class="product-old-price">$990.00</del></h4>
-                        <div class="product-rating">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
+                        <div class="product-body">
+                          <p class="product-category"><%=product_category.category_pro.category_name%></p>
+                          <h3 class="product-name"><%= link_to product_category.pro_name, product_category %></h3>
+                          <h4 class="product-price"><%= product_category.price_output %> $<del class="product-old-price">$990.00</del></h4>
+                          <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
                         </div>
-                      </div>
+                      <% end %>
                       <div class="add-to-cart" >
                         <%= button_to 'Add to Cart', line_items_path(product_id: product_category), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
                       </div>
