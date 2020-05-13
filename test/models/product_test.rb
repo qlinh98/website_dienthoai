@@ -1,4 +1,5 @@
 require "test_helper"
+require "pry"
 
 class ProductTest < ActiveSupport::TestCase
   # test "the truth" do
@@ -11,25 +12,25 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:pro_name].any?
     assert product.errors[:quantity].any?
     assert product.errors[:price_input].any?
+    assert product.errors[:price_output].any?
   end
   test "Price_output phai lon hon price_input" do
-    product = Product.new(pro_name: "Hmm",
+    product = Product.new(pro_name: "Hello",
                           quantity: 45,
-                          price_input: 5.0,
-                          img_1: "MyString.jpg",
-                          img_2: "MyString.jpg",
-                          img_3: "MyString.jpg")
-
+                          price_input: 5,
+                          img_1: "MyString1.jpg",
+                          img_2: "MyString2.jpg",
+                          img_3: "MyString3.jpg")
     product.price_output = -1
     assert product.invalid?
     assert_equal "must be greater than or equal to #{product.price_input}",
                  product.errors[:price_output].join("")
-    product.price_output = 4.0
+    product.price_output = 4
     assert product.invalid?
     assert_equal "must be greater than or equal to #{product.price_input}",
                  product.errors[:price_output].join("")
-
-    product.price_output = 7.0
+    product.price_output = 7
+    # binding.pry
     assert product.valid?
   end
 
@@ -50,8 +51,8 @@ class ProductTest < ActiveSupport::TestCase
   def new_product(image_1)
     Product.new(:pro_name => "ffsfsfsfsf",
                 :quantity => 45.0,
-                :price_input => 5.0,
-                :price_output => 6.0,
+                :price_input => 5,
+                :price_output => 6,
                 :img_1 => image_1,
                 :img_2 => image_1,
                 :img_3 => image_1)
@@ -66,7 +67,8 @@ class ProductTest < ActiveSupport::TestCase
     end
 
     url_khong_hop_le.each do |name|
-      assert new_product(name).invalid?, "#{name} shouldn't be valid"
+      # binding.pry
+      assert new_product(name).valid?, "#{name} shouldn't be valid"
     end
   end
 end

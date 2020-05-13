@@ -7,9 +7,9 @@ class Product < ApplicationRecord
                                       :with => %r{\.(gif|jpg|png)\Z}i,
                                       :message => "Chi nhan file GIF, JPG, PNG",
                                     }
-  belongs_to :category_pro
+  belongs_to :category_pro, optional: true
   has_one :product_detail
-  has_many :poll
+  has_many :poll, dependent: :nullify
   has_many :line_item
   mount_uploader :img_1, ImageUploader
   mount_uploader :img_2, ImageUploader

@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_103210) do
     t.string "img_1"
     t.string "img_2"
     t.string "img_3"
-    t.bigint "category_pro_id", null: false
+    t.bigint "category_pro_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_pro_id"], name: "index_products_on_category_pro_id"

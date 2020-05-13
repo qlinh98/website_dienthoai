@@ -21,7 +21,7 @@ class ProductsController < InheritedResources::Base
     # binding.pry
 
     @product_relate = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: @products.category_pro_id)
-    
+
     @poll = Product.includes(:poll).find(params[:id])
     # binding.pry
     sum_vote

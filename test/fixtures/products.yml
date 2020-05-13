@@ -1,31 +1,32 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   pro_name: iphone
   quantity: 1
-  price_input: 5.0
-  price_output: 6.0
+  price_input: 5
+  price_output: 6
   img_1: img.gif
   img_2: img.gif
   img_3: img.gif
-  category_pro: 1
+  category_pro: one
 
 two:
   pro_name: MyString2
   quantity: 1
-  price_input: 4.0
-  price_output: 5.0
+  price_input: 4
+  price_output: 5
   img_1: MyString.png
   img_2: MyString.png
   img_3: MyString.png
-  category_pro: 2
+  category_pro: two
 
 phone:
   pro_name: SamSung A50
   quantity: 15
-  price_input: 8.0
-  price_output: 9.0
+  price_input: 8
+  price_output: 9
   img_1: MyString.jpg
   img_2: MyString.jpg
   img_3: MyString.jpg
-  category_pro: 2
+  category_pro: two

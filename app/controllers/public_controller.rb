@@ -28,4 +28,6 @@ class PublicController < ApplicationController
   #     format.json { head :no_content }
   #   end
   # end
+  def show
+  end
 end

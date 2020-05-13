@@ -64,26 +64,26 @@
                 <div class="products" >
                   <!-- product -->
                   <% @product.each do |product| %>
-                  <%= link_to product do %>
-                    <div class="product">
-                      <div class="product-img">
-                        <img src = "<%=product.img_1%>">
-                        <div class="product-label">
-                          <span class="new">NEW</span>
-                        </div>
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category"><%=product.category_pro.category_name%></p>
-                        <h3 class="product-name"><%= link_to product.pro_name, product %>
-                          <h4 class="product-price"><%= number_to_currency(product.price_output)%></h4>
-                          <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    <%= link_to product do %>
+                      <div class="product">
+                        <div class="product-img">
+                          <img src = "<%=product.img_1%>">
+                          <div class="product-label">
+                            <span class="new">NEW</span>
                           </div>
                         </div>
+                        <div class="product-body">
+                          <p class="product-category"><%=product.category_pro.category_name%></p>
+                          <h3 class="product-name"><%= link_to product.pro_name, product %>
+                            <h4 class="product-price"><%= number_to_currency(product.price_output)%></h4>
+                            <div class="product-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </div>
+                          </div>
                         <%end%>
                         <div class="add-to-cart" >
                           <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>

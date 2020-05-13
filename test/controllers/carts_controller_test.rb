@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class CartsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create cart" do
-    assert_difference('Cart.count') do
+    assert_difference("Cart.count") do
       post carts_url, params: { cart: { user_id: @cart.user_id } }
     end
 
@@ -39,7 +39,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
-    assert_difference('Cart.count', -1) do
+    assert_difference("Cart.count", -1) do
       delete cart_url(@cart)
     end
 

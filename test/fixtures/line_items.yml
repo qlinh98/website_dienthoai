@@ -5,7 +5,7 @@ one:
   quantity: 1
   money: 9.99
   total: 9.99
-  product: phone
+  product: two
   order: one
 
 two:
@@ -13,5 +13,13 @@ two:
   quantity: 1
   money: 5.0
   total: 5.0
-  product: one
+  product: two
   order: two
+
+three:
+  name_pro: iphone 11
+  quantity: 1
+  money: 5.0
+  total: 5.0
+  product: three
+  order: three

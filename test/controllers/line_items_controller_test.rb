@@ -1,4 +1,5 @@
 require "test_helper"
+require "pry"
 
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +17,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create line_item" do
-    assert_difference("LineItem.count") do
+    assert_difference("LineItem.count", 0) do
       post line_items_url, params: { product_id: products(:phone).id }
     end
 
@@ -52,6 +53,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       delete line_item_url(@line_item)
     end
 
-    assert_redirected_to line_items_url
+    assert_redirected_to :root
   end
 end

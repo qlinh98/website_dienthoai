@@ -57,7 +57,7 @@
               <div class="order-total"><strong class="order-total"><%= number_to_currency(@cart.total_price) %></strong></div>
               <%# <%form.text_field :total, required: true, class: 'order-total', value: number_to_currency(@cart.total_price) %>
             </div>
-            <div class="form-group">  
+            <div class="form-group">
               <%= form.label :pay_type %><br>
               <%= form.select :pay_type, Order.pay_types.keys,
                             prompt: 'Select a payment method'  %>
