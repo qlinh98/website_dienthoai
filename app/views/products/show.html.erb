@@ -1,440 +1,439 @@
 <div id="breadcrumb" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="breadcrumb-tree">
-                    <li><a href="/">Home</a></li>
-                    <li><%=link_to @products.category_pro.category_name, products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name)%></li>
-                    <li class="active"><%=@products.pro_name%></li>
-                </ul>
-            </div>
-        </div>
-        <!-- /row -->
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb-tree">
+          <li><a href="/">Home</a></li>
+          <li><%=link_to @products.category_pro.category_name, products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name)%></li>
+          <li class="active"><%=@products.pro_name%></li>
+        </ul>
+      </div>
     </div>
-    <!-- /container -->
+    <!-- /row -->
+  </div>
+  <!-- /container -->
 </div>
 <!-- /BREADCRUMB -->
 <!-- SECTION -->
 <div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!-- Product main img -->
-            <div class="col-md-5 col-md-push-2">
-                <div id="product-main-img">
-                    <div class="product-preview">
-                        <img src="<%=@products.img_1%>">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="<%=@products.img_2%>">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="<%=@products.img_3%>">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-md-pull-5">
-                <div id="product-imgs">
-                    <div class="product-preview">
-                        <img src="<%=@products.img_1%>">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="<%=@products.img_2%>">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="<%=@products.img_3%>">
-                    </div>
-                </div>
-            </div>
-            <!-- /Product thumb imgs -->
-            <!-- Product details -->
-            <div class="col-md-5">
-                <div class="product-details">
-                    <h2 class="product-name"><%=@products.pro_name%></h2>
-                    <div>
-                        <div class="product-rating">
-                            <% [1,2,3,4,5].each do | x | %>
-                            <% if  x <= (@n.to_f/@dem) %>
-                            <i class="fa fa-star"></i>
-                            <% else %>
-                            <i class="fa fa-star-o empty"></i>
-                            <%end%>
-                            <%end%>
-                        </div>
-                        <a data-toggle="tab"><%= @dem%> Review(s)</a>
-                    </div>
-                    <div>
-                        <h3 class="product-price"><%=@products.price_output%> $ <del class="product-old-price">$990.00</del></h3>
-                        <ul class="product-links">
-                            <li>Category:</li>
-                            <li><a href="#"><%=@products.category_pro.category_name%></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-options">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>TECHNICAL INFORMATION</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Screen:</td>
-                                    <td><%=@products.product_detail&.screen%></td>
-                                </tr>
-                                <tr>
-                                    <td>Operating system:</td>
-                                    <td><%=@products.product_detail&.operating_system%></td>
-                                </tr>
-                                <tr>
-                                    <td>Rear camera:</td>
-                                    <td><%=@products.product_detail&.rear_camera%></td>
-                                </tr>
-                                <tr>
-                                    <td>Front camera:</td>
-                                    <td><%=@products.product_detail&.front_camera%></td>
-                                </tr>
-                                <tr>
-                                    <td>CPU:</td>
-                                    <td><%=@products.product_detail&.cpu%></td>
-                                </tr>
-                                <tr>
-                                    <td>Ram:</td>
-                                    <td><%=@products.product_detail&.ram%></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="add-to-cart">
-                        <%= button_to 'Add to Cart', line_items_path(:product_id => params[:id]), class: "add-to-cart-btn fa fa-shopping-cart" %>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product details -->
-            <!-- Product tab -->
-            <div class="col-md-12">
-                <div id="product-tab">
-                    <!-- product tab nav -->
-                    <ul class="tab-nav">
-                        <li><a data-toggle="tab" href="#tab2">Details</a></li>
-                        <li><a data-toggle="tab" href="#tab3">Reviews (<%= @dem%>)</a></li>
-                    </ul>
-                    <!-- /product tab nav -->
-                    <!-- product tab content -->
-                    <div class="tab-content">
-                        <!-- tab1  -->
-                        <!-- /tab1  -->
-                        <!-- tab2  -->
-                        <div id="tab2" class="tab-pane fade in">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="product-options">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>TECHNICAL INFORMATION</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Screen:</td>
-                                                    <td><%=@products.product_detail&.screen%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Operating system:</td>
-                                                    <td><%=@products.product_detail&.operating_system%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Rear camera:</td>
-                                                    <td><%=@products.product_detail&.rear_camera%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Front camera:</td>
-                                                    <td><%=@products.product_detail&.front_camera%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Connect:</td>
-                                                    <td><%=@products.product_detail&.cpu%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>CPU:</td>
-                                                    <td><%=@products.product_detail&.cpu%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ram:</td>
-                                                    <td><%=@products.product_detail&.ram%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Internal memory:</td>
-                                                    <td><%=@products.product_detail&.internal_memory%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>External memory:</td>
-                                                    <td><%=@products.product_detail&.memory_stick%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sim:</td>
-                                                    <td><%=@products.product_detail&.sim%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Battery capacity:</td>
-                                                    <td><%=@products.product_detail&.battery_capacity%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Hard Drive:</td>
-                                                    <td><%=@products.product_detail&.hard_drive%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Graphic card:</td>
-                                                    <td><%=@products.product_detail&.graphic_card%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Connector:</td>
-                                                    <td><%=@products.product_detail&.connector%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Design:</td>
-                                                    <td><%=@products.product_detail&.design%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Size:</td>
-                                                    <td><%=@products.product_detail&.size%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Launches:</td>
-                                                    <td><%=@products.product_detail&.release_time%></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /tab2  -->
-                        <!-- tab3  -->
-                        <div id="tab3" class="tab-pane fade in">
-                            <div class="row">
-                                <!-- Rating -->
-                                <div class="col-md-3">
-                                    <div id="rating">
-                                        <div class="rating-avg">
-                                            <% if @dem != 0%>
-                                            <span><%= (@n.to_f/@dem).round(1)%> / 5</span>
-                                            <%else%>
-                                            <span>0 / 5</span>
-                                            <%end%>
-                                            <div class="rating-stars">
-                                                <% [1,2,3,4,5].each do | x | %>
-                                                <% if  x <= (@n.to_f/@dem) %>
-                                                <i class="fa fa-star"></i>
-                                                <% else %>
-                                                <i class="fa fa-star-o empty"></i>
-                                                <%end%>
-                                                <%end%>
-                                            </div>
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <div class="rating-stars">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="rating-progress">
-                                                    <div style="width: <%=(@five_star.to_f/@dem)*100%>%;"></div>
-                                                </div>
-                                                <span class="sum"><%= @five_star %></span>
-                                            </li>
-                                            <li>
-                                                <div class="rating-stars">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="rating-progress">
-                                                    <div style="width: <%=(@four_star.to_f/@dem)*100%>%;"></div>
-                                                </div>
-                                                <span class="sum"><%= @four_star %></span>
-                                            </li>
-                                            <li>
-                                                <div class="rating-stars">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="rating-progress">
-                                                    <div style="width: <%=(@three_star.to_f/@dem)*100%>%;"></div>
-                                                </div>
-                                                <span class="sum"><%= @three_star %></span>
-                                            </li>
-                                            <li>
-                                                <div class="rating-stars">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="rating-progress">
-                                                    <div style="width: <%=(@two_star.to_f/@dem)*100%>%;"></div>
-                                                </div>
-                                                <span class="sum"><%= @two_star %></span>
-                                            </li>
-                                            <li>
-                                                <div class="rating-stars">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="rating-progress">
-                                                    <div style="width: <%=(@one_star.to_f/@dem)*100%>%;"></div>
-                                                </div>
-                                                <span class="sum"><%= @one_star %></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- /Rating -->
-                                <!-- Reviews -->
-                                <div class="col-md-6">
-                                    <div id="reviews">
-                                        <ul class="reviews">
-                                            <% @poll.poll.each do |poll|%>
-                                            <li>
-                                                <div class="review-heading">
-                                                    <h6 class="name"><%= poll.user.email.chomp("@gmail.com")%></h6>
-                                                    <p class="date"><%= poll.created_at%></p>
-                                                    <div class="review-rating">
-                                                        <% [1,2,3,4,5].each do | x | %>
-                                                        <% if  x <= poll.vote_count %>
-                                                        <i class="fa fa-star"></i>
-                                                        <% else %>
-                                                        <i class="fa fa-star-o empty"></i>
-                                                        <%end%>
-                                                        <%end%>
-                                                    </div>
-                                                </div>
-                                                <div class="review-body">
-                                                    <p><%= poll.comment%></p>
-                                                </div>
-                                            </li>
-                                            <% end%>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- /Reviews -->
-                                <div class="col-md-3">
-                                    <div id="review-form">
-                                        <%= form_with(model: [ @products, @products.poll.build ], remote: true, class: "review-form") do |form| %>
-                                        <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
-                                        <div class="input-rating">
-                                            <span>Your Rating: </span>
-                                            <div class="stars">
-                                                <%= form.radio_button :vote_count, 5, id: 'star5'%><label for="star5"></label>
-                                                <%= form.radio_button :vote_count, 4, id: 'star4'%><label for="star4"></label>
-                                                <%= form.radio_button :vote_count, 3, id: 'star3'%><label for="star3"></label>
-                                                <%= form.radio_button :vote_count, 2, id: 'star2'%><label for="star2"></label>
-                                                <%= form.radio_button :vote_count, 1, id: 'star1'%><label for="star1"></label>
-                                            </div>
-                                        </div>
-                                        <%if current_user.present?%>
-                                        <%= form.hidden_field :user_id, class: "input", value: current_user.id %>
-                                        <%end%>
-                                        <%= form.submit "Review", class: "primary-btn" %>
-                                        <% end %>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /tab3  -->
-                    </div>
-                    <!-- /product tab content  -->
-                </div>
-            </div>
-            <!-- /product tab -->
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- Product main img -->
+      <div class="col-md-5 col-md-push-2">
+        <div id="product-main-img">
+          <div class="product-preview">
+            <img src="<%=@products.img_1%>">
+          </div>
+          <div class="product-preview">
+            <img src="<%=@products.img_2%>">
+          </div>
+          <div class="product-preview">
+            <img src="<%=@products.img_3%>">
+          </div>
         </div>
-        <!-- /row -->
+      </div>
+      <div class="col-md-2 col-md-pull-5">
+        <div id="product-imgs">
+          <div class="product-preview">
+            <img src="<%=@products.img_1%>">
+          </div>
+          <div class="product-preview">
+            <img src="<%=@products.img_2%>">
+          </div>
+          <div class="product-preview">
+            <img src="<%=@products.img_3%>">
+          </div>
+        </div>
+      </div>
+      <!-- /Product thumb imgs -->
+      <!-- Product details -->
+      <div class="col-md-5">
+        <div class="product-details">
+          <h2 class="product-name"><%=@products.pro_name%></h2>
+          <div>
+            <div class="product-rating">
+              <% [1,2,3,4,5].each do | x | %>
+                <% if  x <= (@n.to_f/@dem) %>
+                  <i class="fa fa-star"></i>
+                <% else %>
+                  <i class="fa fa-star-o empty"></i>
+                <%end%>
+              <%end%>
+            </div>
+            <a data-toggle="tab"><%= @dem%> Review(s)</a>
+          </div>
+          <div>
+            <h3 class="product-price"><%=@products.price_output%> $ <del class="product-old-price">$990.00</del></h3>
+            <ul class="product-links">
+              <li>Category:</li>
+              <li><a href="#"><%=@products.category_pro.category_name%></a></li>
+            </ul>
+          </div>
+          <div class="product-options">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>TECHNICAL INFORMATION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Screen:</td>
+                  <td><%=@products.product_detail&.screen%></td>
+                </tr>
+                <tr>
+                  <td>Operating system:</td>
+                  <td><%=@products.product_detail&.operating_system%></td>
+                </tr>
+                <tr>
+                  <td>Rear camera:</td>
+                  <td><%=@products.product_detail&.rear_camera%></td>
+                </tr>
+                <tr>
+                  <td>Front camera:</td>
+                  <td><%=@products.product_detail&.front_camera%></td>
+                </tr>
+                <tr>
+                  <td>CPU:</td>
+                  <td><%=@products.product_detail&.cpu%></td>
+                </tr>
+                <tr>
+                  <td>Ram:</td>
+                  <td><%=@products.product_detail&.ram%></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="add-to-cart">
+            <%= button_to 'Add to Cart', line_items_path(:product_id => params[:id]), class: "add-to-cart-btn fa fa-shopping-cart" %>
+          </div>
+        </div>
+      </div>
+      <!-- /Product details -->
+      <!-- Product tab -->
+      <div class="col-md-12">
+        <div id="product-tab">
+          <!-- product tab nav -->
+          <ul class="tab-nav">
+            <li><a data-toggle="tab" href="#tab2">Details</a></li>
+            <li><a data-toggle="tab" href="#tab3">Reviews (<%= @dem%>)</a></li>
+          </ul>
+          <!-- /product tab nav -->
+          <!-- product tab content -->
+          <div class="tab-content">
+            <!-- tab1  -->
+            <!-- /tab1  -->
+            <!-- tab2  -->
+            <div id="tab2" class="tab-pane fade in">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="product-options">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>TECHNICAL INFORMATION</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Screen:</td>
+                          <td><%=@products.product_detail&.screen%></td>
+                        </tr>
+                        <tr>
+                          <td>Operating system:</td>
+                          <td><%=@products.product_detail&.operating_system%></td>
+                        </tr>
+                        <tr>
+                          <td>Rear camera:</td>
+                          <td><%=@products.product_detail&.rear_camera%></td>
+                        </tr>
+                        <tr>
+                          <td>Front camera:</td>
+                          <td><%=@products.product_detail&.front_camera%></td>
+                        </tr>
+                        <tr>
+                          <td>Connect:</td>
+                          <td><%=@products.product_detail&.cpu%></td>
+                        </tr>
+                        <tr>
+                          <td>CPU:</td>
+                          <td><%=@products.product_detail&.cpu%></td>
+                        </tr>
+                        <tr>
+                          <td>Ram:</td>
+                          <td><%=@products.product_detail&.ram%></td>
+                        </tr>
+                        <tr>
+                          <td>Internal memory:</td>
+                          <td><%=@products.product_detail&.internal_memory%></td>
+                        </tr>
+                        <tr>
+                          <td>External memory:</td>
+                          <td><%=@products.product_detail&.memory_stick%></td>
+                        </tr>
+                        <tr>
+                          <td>Sim:</td>
+                          <td><%=@products.product_detail&.sim%></td>
+                        </tr>
+                        <tr>
+                          <td>Battery capacity:</td>
+                          <td><%=@products.product_detail&.battery_capacity%></td>
+                        </tr>
+                        <tr>
+                          <td>Hard Drive:</td>
+                          <td><%=@products.product_detail&.hard_drive%></td>
+                        </tr>
+                        <tr>
+                          <td>Graphic card:</td>
+                          <td><%=@products.product_detail&.graphic_card%></td>
+                        </tr>
+                        <tr>
+                          <td>Connector:</td>
+                          <td><%=@products.product_detail&.connector%></td>
+                        </tr>
+                        <tr>
+                          <td>Design:</td>
+                          <td><%=@products.product_detail&.design%></td>
+                        </tr>
+                        <tr>
+                          <td>Size:</td>
+                          <td><%=@products.product_detail&.size%></td>
+                        </tr>
+                        <tr>
+                          <td>Launches:</td>
+                          <td><%=@products.product_detail&.release_time%></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /tab2  -->
+            <!-- tab3  -->
+            <div id="tab3" class="tab-pane fade in">
+              <div class="row">
+                <!-- Rating -->
+                <div class="col-md-3">
+                  <div id="rating">
+                    <div class="rating-avg">
+                      <% if @dem != 0%>
+                        <span><%= (@n.to_f/@dem).round(1)%> / 5</span>
+                      <%else%>
+                        <span>0 / 5</span>
+                      <%end%>
+                      <div class="rating-stars">
+                        <% [1,2,3,4,5].each do | x | %>
+                          <% if  x <= (@n.to_f/@dem) %>
+                            <i class="fa fa-star"></i>
+                          <% else %>
+                            <i class="fa fa-star-o empty"></i>
+                          <%end%>
+                        <%end%>
+                      </div>
+                    </div>
+                    <ul class="rating">
+                      <li>
+                        <div class="rating-stars">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <div class="rating-progress">
+                          <div style="width: <%=(@five_star.to_f/@dem)*100%>%;"></div>
+                        </div>
+                        <span class="sum"><%= @five_star %></span>
+                      </li>
+                      <li>
+                        <div class="rating-stars">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star-o"></i>
+                        </div>
+                        <div class="rating-progress">
+                          <div style="width: <%=(@four_star.to_f/@dem)*100%>%;"></div>
+                        </div>
+                        <span class="sum"><%= @four_star %></span>
+                      </li>
+                      <li>
+                        <div class="rating-stars">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-o"></i>
+                        </div>
+                        <div class="rating-progress">
+                          <div style="width: <%=(@three_star.to_f/@dem)*100%>%;"></div>
+                        </div>
+                        <span class="sum"><%= @three_star %></span>
+                      </li>
+                      <li>
+                        <div class="rating-stars">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-o"></i>
+                        </div>
+                        <div class="rating-progress">
+                          <div style="width: <%=(@two_star.to_f/@dem)*100%>%;"></div>
+                        </div>
+                        <span class="sum"><%= @two_star %></span>
+                      </li>
+                      <li>
+                        <div class="rating-stars">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-o"></i>
+                          <i class="fa fa-star-o"></i>
+                        </div>
+                        <div class="rating-progress">
+                          <div style="width: <%=(@one_star.to_f/@dem)*100%>%;"></div>
+                        </div>
+                        <span class="sum"><%= @one_star %></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- /Rating -->
+                <!-- Reviews -->
+                <div class="col-md-6">
+                  <div id="reviews">
+                    <ul class="reviews">
+                      <% @poll.poll.each do |poll|%>
+                        <li>
+                          <div class="review-heading">
+                            <h6 class="name"><%= poll.user.email.chomp("@gmail.com")%></h6>
+                            <p class="date"><%= poll.created_at%></p>
+                            <div class="review-rating">
+                              <% [1,2,3,4,5].each do | x | %>
+                                <% if  x <= poll.vote_count %>
+                                  <i class="fa fa-star"></i>
+                                <% else %>
+                                  <i class="fa fa-star-o empty"></i>
+                                <%end%>
+                              <%end%>
+                            </div>
+                          </div>
+                          <div class="review-body">
+                            <p><%= poll.comment%></p>
+                          </div>
+                        </li>
+                      <% end%>
+                    </ul>
+                  </div>
+                </div>
+                <!-- /Reviews -->
+                <div class="col-md-3">
+                  <div id="review-form">
+                    <%= form_with(model: [ @products, @products.poll.build ], remote: true, class: "review-form") do |form| %>
+                      <%= form.text_area :comment, class: "input", placeholder: "Your Review" %>
+                      <div class="input-rating">
+                        <span>Your Rating: </span>
+                        <div class="stars">
+                          <%= form.radio_button :vote_count, 5, id: 'star5'%><label for="star5"></label>
+                          <%= form.radio_button :vote_count, 4, id: 'star4'%><label for="star4"></label>
+                          <%= form.radio_button :vote_count, 3, id: 'star3'%><label for="star3"></label>
+                          <%= form.radio_button :vote_count, 2, id: 'star2'%><label for="star2"></label>
+                          <%= form.radio_button :vote_count, 1, id: 'star1'%><label for="star1"></label>
+                        </div>
+                      </div>
+                      <%if current_user.present?%>
+                        <%= form.hidden_field :user_id, class: "input", value: current_user.id %>
+                      <%end%>
+                      <%= form.submit "Review", class: "primary-btn" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /tab3  -->
+          </div>
+          <!-- /product tab content  -->
+        </div>
+      </div>
+      <!-- /product tab -->
     </div>
-    <!-- /container -->
+    <!-- /row -->
+  </div>
+  <!-- /container -->
 </div>
 <!-- /SECTION -->
 <!-- Section -->
 <div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h3><%=link_to "Related Products", products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name), class: "title"%></h3>
-                </div>
-            </div>
-            <!-- product -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="products-tabs">
-                            <!-- tab -->
-                            <div id="tab1" class="tab-pane active">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                    <!-- product -->
-                                    <% @product_relate.each do |product_re|  dem = 1 %>
-                                    <% if dem <=6 %>
-                                    <div class="product">
-                                        <%= link_to product_re do %>
-                                        <div class="product-img">
-                                            <img src="<%=product_re.img_1%>">
-                                            <div class="product-label">
-                                                <span class="new">NEW</span>
-                                            </div>
-                                        </div>
-                                        <% end %>
-                                        <div class="product-body">
-                                            <p class="product-category"><%=product_re.category_pro.category_name%></p>
-                                            <h3 class="product-name"><%= link_to product_re.pro_name, product_re %></h3>
-                                            <h4 class="product-price"><%= number_to_currency(product_re.price_output) %> </h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <%= button_to 'Add to Cart', line_items_path(product_id: product_re), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
-                                        </div>
-                                    </div>
-                                    <%dem+=1%>
-                                    <%end%>
-                                    <%end%>
-                                    <!-- /product -->
-                                </div>
-                            </div>
-                            <!-- /tab -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Products tab & slick --
-            <!-- /row -->
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title text-center">
+          <h3><%=link_to "Related Products", products_path(category_pro_id: @products.category_pro.id, category_name: @products.category_pro.category_name), class: "title"%></h3>
         </div>
-        <!-- /container -->
+      </div>
+      <!-- product -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="products-tabs">
+              <!-- tab -->
+              <div id="tab1" class="tab-pane active">
+                <div class="products-slick" data-nav="#slick-nav-1">
+                  <!-- product -->
+                  <% @product_relate.each do |product_re|  dem = 1 %>
+                  <% if dem <=6 %>
+                    <div class="product">
+                      <%= link_to product_re do %>
+                        <div class="product-img">
+                          <img src="<%=product_re.img_1%>">
+                          <div class="product-label">
+                            <span class="new">NEW</span>
+                          </div>
+                        </div>
+                      <% end %>
+                      <div class="product-body">
+                        <p class="product-category"><%=product_re.category_pro.category_name%></p>
+                        <h3 class="product-name"><%= link_to product_re.pro_name, product_re %></h3>
+                        <h4 class="product-price"><%= number_to_currency(product_re.price_output) %> </h4>
+                        <% sum_vote(product_re.id)%>
+                        <div class="product-rating">
+                          <% [1,2,3,4,5].each do | x | %>
+                            <% if  x <= (@n1.to_f/@dem1) %>
+                              <i class="fa fa-star"></i>
+                            <% else %>
+                              <i class="fa fa-star-o empty"></i>
+                            <%end%>
+                          <%end%>
+                        </div>
+                      </div>
+                      <div class="add-to-cart">
+                        <%= button_to 'Add to Cart', line_items_path(product_id: product_re), class: "add-to-cart-btn fa fa-shopping-cart", id: "add-cart-login" %>
+                      </div>
+                    </div>
+                    <%dem+=1%>
+                  <%end%>
+                <%end%>
+                <!-- /product -->
+              </div>
+            </div>
+            <!-- /tab -->
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- Products tab & slick --
+            <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
 </div>
 <!-- /Section -->

@@ -1,7 +1,5 @@
 class ProductsController < InheritedResources::Base
 
-  # load_and_authorize_resource
-  # before_action :search_product
   def index
     if params[:category_pro_id].present?
       @product = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: params[:category_pro_id]).paginate(:page => params[:page], :per_page => 9)
@@ -14,16 +12,12 @@ class ProductsController < InheritedResources::Base
   end
 
   def show
-    # @products = Product.all
-    # search_product
     @products = Product.includes(:product_detail).find(params[:id])
 
-    # binding.pry
-
     @product_relate = Product.order("created_at desc").includes(:category_pro).where(category_pro_id: @products.category_pro_id)
-    
+
     @poll = Product.includes(:poll).find(params[:id])
-    # binding.pry
+
     sum_vote
   end
 
@@ -52,11 +46,6 @@ class ProductsController < InheritedResources::Base
     end
   end
 
-  # def home
-  #   @products1 = Product.all
-  #   search_product
-  # end
-  # binding.pry
   def search_product
     @search = params["search"]
     if @search.present?
@@ -64,44 +53,6 @@ class ProductsController < InheritedResources::Base
       @product = Product.where("pro_name like ?", "%#{name}%").paginate(:page => params[:page], :per_page => 9)
     end
   end
-
-  # fill product folow category
-  # def fill_product
-  #   if params["search"]
-  #     @filter = params["search"]["flavors"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
-  #     @cocktails = @filter.empty? ? Cocktail.all : Cocktail.all.tagged_with(@filter, any: true)
-  #   else
-  #     @cocktails = Cocktail.all
-  #   end
-  # end
-
-  # def show
-  #   @product1 = []
-  #   if params[:search]
-  #     @product = Product.search_by_full_name(params[:search])
-  #     @product.each do |product2|
-  #       @product1 << product2
-  #     end
-  #   else
-  #     @product = Product.all
-  #     @product.each do |product2|
-  #       @product1 << product2
-  #     end
-  #   end
-  # end
-
-  # def create
-  #   @poll = Poll.new(poll_params)
-  #   respond_to do |format|
-  #     if @poll.save
-  #       format.html { redirect_to @poll, notice: "Cart was successfully created." }
-  #       format.json { render :show, status: :created, location: @poll }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @poll.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   private
 
