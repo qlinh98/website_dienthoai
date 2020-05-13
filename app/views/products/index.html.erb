@@ -51,8 +51,6 @@
     <!-- /ASIDE -->
     <!-- STORE -->
     <div id="store" class="col-md-9">
-      <!-- store top filter -->
-      <!-- /store top filter -->
       <!-- store products -->
       <div class="row">
         <!-- Products tab & slick -->
@@ -76,12 +74,15 @@
                           <p class="product-category"><%=product.category_pro.category_name%></p>
                           <h3 class="product-name"><%= link_to product.pro_name, product %>
                             <h4 class="product-price"><%= number_to_currency(product.price_output)%></h4>
+                            <% sum_vote(product.id)%>
                             <div class="product-rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
+                              <% [1,2,3,4,5].each do | x | %>
+                                <% if  x <= (@n1.to_f/@dem1) %>
+                                  <i class="fa fa-star"></i>
+                                <% else %>
+                                  <i class="fa fa-star-o empty"></i>
+                                <%end%>
+                              <%end%>
                             </div>
                           </div>
                         <%end%>

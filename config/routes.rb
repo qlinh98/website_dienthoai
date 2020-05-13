@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :polls
   end
 
-  # resources :category_pros
+  resources :polls
+  resources :category_pros
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

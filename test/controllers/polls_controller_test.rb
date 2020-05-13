@@ -10,33 +10,33 @@ class PollsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_poll_url
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get new_poll_url
+  #   assert_response :success
+  # end
 
-  test "should create poll" do
-    assert_difference('Poll.count') do
-      post polls_url, params: { poll: { comment: @poll.comment, product_id: @poll.product_id, user_id: @poll.user_id, vote_count: @poll.vote_count } }
-    end
+  # test "should create poll" do
+  #   assert_difference('Poll.count',1) do
+  #     post polls_url, params: { poll: { comment: @poll.comment, product_id: @poll.product_id, user_id: @poll.user_id, vote_count: @poll.vote_count } }
+  #   end
 
-    assert_redirected_to poll_url(Poll.last)
-  end
+  #   assert_redirected_to poll_url(Poll.last)
+  # end
 
   test "should show poll" do
     get poll_url(@poll)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_poll_url(@poll)
-    assert_response :success
-  end
+  # test "should get edit" do
+  #   get edit_poll_url(@poll)
+  #   assert_response :success
+  # end
 
-  test "should update poll" do
-    patch poll_url(@poll), params: { poll: { comment: @poll.comment, product_id: @poll.product_id, user_id: @poll.user_id, vote_count: @poll.vote_count } }
-    assert_redirected_to poll_url(@poll)
-  end
+  # test "should update poll" do
+  #   patch poll_url(@poll), params: { poll: { comment: @poll.comment, product_id: @poll.product_id, user_id: @poll.user_id, vote_count: @poll.vote_count } }
+  #   assert_redirected_to poll_url(@poll)
+  # end
 
   test "should destroy poll" do
     assert_difference('Poll.count', -1) do

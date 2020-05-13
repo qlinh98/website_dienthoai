@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class CategoryProsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class CategoryProsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create category_pro" do
-    assert_difference('CategoryPro.count') do
+    assert_difference("CategoryPro.count") do
       post category_pros_url, params: { category_pro: { category_name: @category_pro.category_name } }
     end
 
@@ -36,13 +36,5 @@ class CategoryProsControllerTest < ActionDispatch::IntegrationTest
   test "should update category_pro" do
     patch category_pro_url(@category_pro), params: { category_pro: { category_name: @category_pro.category_name } }
     assert_redirected_to category_pro_url(@category_pro)
-  end
-
-  test "should destroy category_pro" do
-    assert_difference('CategoryPro.count', -1) do
-      delete category_pro_url(@category_pro)
-    end
-
-    assert_redirected_to category_pros_url
   end
 end

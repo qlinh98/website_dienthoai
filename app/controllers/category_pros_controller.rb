@@ -1,6 +1,5 @@
 class CategoryProsController < InheritedResources::Base
-  def show
-  end
+  
 
   private
 
